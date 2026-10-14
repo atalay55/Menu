@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Le Gourmet - Restoran Menüsü</title>
+  <meta name="description" content="Özenle hazırlanan lezzetlerimizi keşfedin. Kahvaltı, öğle, akşam yemekleri, tatlılar ve ferahlatıcı içecekler.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <section class="menu-section" id="our_menu">
+    <div class="menu-container">
+
+      <!-- Top Bar: Language Switcher -->
+      <div class="top-bar">
+        <div class="lang-switcher" role="radiogroup" aria-label="Dil Seçimi / Language / Sprache">
+          <button class="lang-btn active" data-lang="tr" role="radio" aria-checked="true">TR</button>
+          <button class="lang-btn" data-lang="en" role="radio" aria-checked="false">EN</button>
+          <button class="lang-btn" data-lang="de" role="radio" aria-checked="false">DE</button>
+        </div>
+      </div>
+      
+      <!-- Header -->
+      <header class="menu-header">
+        <span class="header-badge" id="headerBadge">
+          ✨ Lezzet Dolu Seçenekler
+        </span>
+        <h1 class="menu-title" id="headerTitle">Menümüz</h1>
+        <p class="menu-subtitle" id="headerSubtitle">
+          Usta şeflerimizin taze ve organik malzemelerle hazırladığı özel lezzetlerimizi keşfedin.
+        </p>
+        <div class="divider">
+          <div class="divider-line"></div>
+          <div class="divider-dot"></div>
+          <div class="divider-line"></div>
+        </div>
+      </header>
+
+      <!-- Controls: Search & Categories -->
+      <div class="menu-controls">
+        <!-- Live Search -->
+        <div class="search-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="menuSearch" class="search-input" placeholder="Menüde yemek veya içecek ara..." aria-label="Menüde ara">
+        </div>
+
+        <!-- Horizontal Scrollable Category Tabs -->
+        <div class="tabs-scroll-container">
+          <ul class="category-tabs" id="categoryTabs" role="tablist">
+            <li>
+              <button class="tab-btn active" data-category="all" role="tab" aria-selected="true">
+                <span class="tab-label" data-key="all">Tümü</span>
+                <span class="tab-count" id="count-all">15</span>
+              </button>
+            </li>
+            <li>
+              <button class="tab-btn" data-category="breakfast" role="tab" aria-selected="false">
+                <span class="tab-label" data-key="breakfast">🍳 Kahvaltı</span>
+                <span class="tab-count" id="count-breakfast">3</span>
+              </button>
+            </li>
+            <li>
+              <button class="tab-btn" data-category="lunch" role="tab" aria-selected="false">
+                <span class="tab-label" data-key="lunch">🥗 Öğle Yemeği</span>
+                <span class="tab-count" id="count-lunch">3</span>
+              </button>
+            </li>
+            <li>
+              <button class="tab-btn" data-category="dinner" role="tab" aria-selected="false">
+                <span class="tab-label" data-key="dinner">🥩 Akşam Yemeği</span>
+                <span class="tab-count" id="count-dinner">3</span>
+              </button>
+            </li>
+            <li>
+              <button class="tab-btn" data-category="dessert" role="tab" aria-selected="false">
+                <span class="tab-label" data-key="dessert">🍰 Tatlılar</span>
+                <span class="tab-count" id="count-dessert">3</span>
+              </button>
+            </li>
+            <li>
+              <button class="tab-btn" data-category="drinks" role="tab" aria-selected="false">
+                <span class="tab-label" data-key="drinks">🍹 İçecekler</span>
+                <span class="tab-count" id="count-drinks">3</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Menu Items Grid (Showcase Only) -->
+      <main class="menu-grid" id="menuGrid" aria-live="polite">
+        <!-- Javascript dynamically renders items here -->
+      </main>
+
+
+    </div>
+  </section>
+
+  <!-- Item Detail Modal (Showcase Only) -->
+  <div class="modal-overlay" id="itemModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalClose" aria-label="Kapat">&times;</button>
+      <img src="" alt="" class="modal-img" id="modalImg">
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <h3 class="modal-title" id="modalTitle"></h3>
+          <span class="modal-price" id="modalPrice"></span>
+        </div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <button class="modal-order-btn" id="modalCloseAction">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Internationalization (i18n) Dictionary
+    const i18n = {
+      tr: {
+        badge: "✨ Lezzet Dolu Seçenekler",
+        title: "Menümüz",
+        subtitle: "Usta şeflerimizin taze ve organik malzemelerle hazırladığı özel lezzetlerimizi keşfedin.",
+        searchPlaceholder: "Menüde yemek veya içecek ara...",
+        closeBtn: "Kapat",
+        emptyMsg: "Aramanıza uygun bir lezzet bulunamadı. Lütfen başka bir kelime deneyin.",
+        categories: {
+          all: "Tümü",
+          breakfast: "🍳 Kahvaltı",
+          lunch: "🥗 Öğle Yemeği",
+          dinner: "🥩 Akşam Yemeği",
+          dessert: "🍰 Tatlılar",
+          drinks: "🍹 İçecekler"
+        }
+      },
+      en: {
+        badge: "✨ Flavors Crafted to Perfection",
+        title: "Our Menu",
+        subtitle: "Discover exceptional culinary creations prepared by master chefs using the freshest ingredients.",
+        searchPlaceholder: "Search food or drinks...",
+        reserveBtn: "Reserve a Table",
+        closeBtn: "Close",
+        emptyMsg: "No dishes found matching your search. Try another keyword.",
+        categories: {
+          all: "All",
+          breakfast: "🍳 Breakfast",
+          lunch: "🥗 Lunch",
+          dinner: "🥩 Dinner",
+          dessert: "🍰 Desserts",
+          drinks: "🍹 Drinks"
+        }
+      },
+      de: {
+        badge: "✨ Kulinarische Meisterwerke",
+        title: "Unsere Speisekarte",
+        subtitle: "Entdecken Sie exklusive Gourmetgerichte, zubereitet von Meisterköchen mit feinsten frischen Zutaten.",
+        searchPlaceholder: "Speisen oder Getränke suchen...",
+        reserveBtn: "Tisch reservieren",
+        closeBtn: "Schließen",
+        emptyMsg: "Keine passenden Gerichte gefunden. Bitte versuchen Sie einen anderen Begriff.",
+        categories: {
+          all: "Alle",
+          breakfast: "🍳 Frühstück",
+          lunch: "🥗 Mittagessen",
+          dinner: "🥩 Abendessen",
+          dessert: "🍰 Desserts",
+          drinks: "🍹 Getränke"
+        }
+      }
+    };
+
+    // Menu Data with Consistent Euro (€) Pricing Across All Languages
+    const menuItems = [
+      // 1. Breakfast (Kahvaltı)
+      {
+        id: 1,
+        category: "breakfast",
+        price: "12.50 €",
+        img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "Gurme Tavuk Burger",
+          en: "Gourmet Chicken Burger",
+          de: "Gourmet Hähnchen-Burger"
+        },
+        desc: {
+          tr: "Özel soslu çıtır tavuk fileto, eritilmiş cheddar peyniri ve taze yeşillikler.",
+          en: "Crispy chicken breast with chef's secret sauce, melted cheddar, and farm-fresh greens.",
+          de: "Knusprige Hähnchenbrust mit Spezialsauce, geschmolzenem Cheddar und frischem Salat."
+        },
+        badge: {
+          tr: "Popüler",
+          en: "Popular",
+          de: "Beliebt"
+        }
+      },
+      {
+        id: 2,
+        category: "breakfast",
+        price: "15.00 €",
+        img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "Geleneksel Köy Kahvaltısı",
+          en: "Traditional Country Breakfast",
+          de: "Traditionelles Bauernfrühstück"
+        },
+        desc: {
+          tr: "Ezine peyniri, ev yapımı reçeller, organik zeytinler, tereyağı ve fırından sıcak simit.",
+          en: "Artisanal cheeses, homemade fruit jams, organic olives, fresh butter, and warm sesame simit.",
+          de: "Feine Käsesorten, hausgemachte Marmelade, Bio-Oliven, Butter und ofenwarmes Simit-Gebäck."
+        },
+        badge: {
+          tr: "Şefin Seçimi",
+          en: "Chef's Choice",
+          de: "Empfehlung"
+        }
+      },
+      {
+        id: 3,
+        category: "breakfast",
+        price: "11.00 €",
+        img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "vegan",
+        name: {
+          tr: "Avokadolu Poşe Yumurta",
+          en: "Avocado Poached Eggs",
+          de: "Pochierte Eier mit Avocado"
+        },
+        desc: {
+          tr: "Ekşi mayalı ekmek üzerinde ezilmiş avokado, çiftlik poşe yumurta ve frenk soğanı.",
+          en: "Toasted sourdough topped with mashed avocado, organic poached eggs, and chives.",
+          de: "Geröstetes Sauerteigbrot mit cremiger Avocado, Bio-Pochiertem Ei und Schnittlauch."
+        },
+        badge: {
+          tr: "Sağlıklı",
+          en: "Healthy",
+          de: "Gesund"
+        }
+      },
+
+      // 2. Lunch (Öğle Yemeği)
+      {
+        id: 4,
+        category: "lunch",
+        price: "16.00 €",
+        img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "vegan",
+        name: {
+          tr: "Taş Fırın Margherita Pizza",
+          en: "Stone-Oven Margherita Pizza",
+          de: "Steinofen Margherita Pizza"
+        },
+        desc: {
+          tr: "48 saat mayalanmış İtalyan hamuru, manda mozzarella, San Marzano domates sosu ve fesleğen.",
+          en: "48-hour fermented dough, buffalo mozzarella, San Marzano tomato sauce, and fresh basil.",
+          de: "48 Stunden fermentierter Teig, Büffelmozzarella, San-Marzano-Tomatensauce und Basilikum."
+        },
+        badge: {
+          tr: "Vejetaryen",
+          en: "Vegetarian",
+          de: "Vegetarisch"
+        }
+      },
+      {
+        id: 5,
+        category: "lunch",
+        price: "10.50 €",
+        img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "vegan",
+        name: {
+          tr: "Akdeniz Kinoa Salatası",
+          en: "Mediterranean Quinoa Salad",
+          de: "Mediterraner Quinoa-Salat"
+        },
+        desc: {
+          tr: "Renkli kinoa, taze roka, çeri domates, avokado ve narenciyeli sızma zeytinyağı sosu.",
+          en: "Tri-color quinoa, wild arugula, cherry tomatoes, avocado, and citrus vinaigrette.",
+          de: "Bunter Quinoa, Rucola, Kirschtomaten, Avocado und Zitrus-Olivenöl-Dressing."
+        },
+        badge: {
+          tr: "Fit & Hafif",
+          en: "Light & Fit",
+          de: "Leicht & Fit"
+        }
+      },
+      {
+        id: 6,
+        category: "lunch",
+        price: "15.00 €",
+        img: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "Kremalı Mantarlı Fettuccine",
+          en: "Creamy Truffle Mushroom Fettuccine",
+          de: "Cremige Trüffel-Pilz-Fettuccine"
+        },
+        price: "15.00 €",
+        desc: {
+          tr: "Taze el yapımı fettuccine, porçini ve kestane mantarı, trüf aroması ve parmesan.",
+          en: "Handmade fresh fettuccine, porcini & cremini mushrooms, truffle essence, and parmesan.",
+          de: "Hausgemachte frische Fettuccine, Stein- und Waldpilze, Trüffelaroma und Parmesan."
+        },
+        badge: {
+          tr: "Çok Satan",
+          en: "Best Seller",
+          de: "Bestseller"
+        }
+      },
+
+      // 3. Dinner (Akşam Yemeği)
+      {
+        id: 7,
+        category: "dinner",
+        price: "29.00 €",
+        img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "Izgara Antrikot Steak",
+          en: "Grilled Ribeye Steak",
+          de: "Gegrilltes Ribeye-Steak"
+        },
+        desc: {
+          tr: "Meşe kömüründe pişirilmiş 28 gün dinlendirilmiş et, tereyağlı bebek patates ve kuşkonmaz.",
+          en: "28-day dry-aged ribeye steak, roasted baby potatoes, and grilled buttered asparagus.",
+          de: "28 Tage gereiftes Ribeye-Steak über Holzkohle gegrillt, Rosmarinkartoffeln und Spargel."
+        },
+        badge: {
+          tr: "Şefin İmzası",
+          en: "Chef's Signature",
+          de: "Chef-Spezialität"
+        }
+      },
+      {
+        id: 8,
+        category: "dinner",
+        price: "23.00 €",
+        img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "spicy",
+        name: {
+          tr: "Deniz Mahsüllü Paella",
+          en: "Seafood Saffron Paella",
+          de: "Mediterrane Meeresfrüchte-Paella"
+        },
+        desc: {
+          tr: "Safranlı pirinç yatağında jumbo karides, kalamar, midye ve taze Akdeniz baharatları.",
+          en: "Traditional saffron rice with tiger prawns, tender calamari, black mussels, and herbs.",
+          de: "Traditioneller Safranreis mit Riesengarnelen, zartem Calamari, Muscheln und Kräutern."
+        },
+        badge: {
+          tr: "Özel Lezzet",
+          en: "Specialty",
+          de: "Delikatesse"
+        }
+      },
+      {
+        id: 9,
+        category: "dinner",
+        price: "26.00 €",
+        img: "https://images.unsplash.com/photo-1514944298352-f673b7d19760?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "Fırında Kuzu İncik",
+          en: "Slow-Braised Lamb Shank",
+          de: "Zart geschmorte Lammhaxe"
+        },
+        desc: {
+          tr: "Ağır ateşte 6 saat nar gibi pişirilmiş kuzu incik, kadife patates püresi ile.",
+          en: "Fall-off-the-bone lamb shank slow-braised for 6 hours, served with velvet potato puree.",
+          de: "6 Stunden sanft geschmorte Lammhaxe, serviert auf cremigem Samtkartoffelpüree."
+        },
+        badge: {
+          tr: "Klasik",
+          en: "Classic",
+          de: "Klassiker"
+        }
+      },
+
+      // 4. Desserts (Tatlılar)
+      {
+        id: 10,
+        category: "dessert",
+        price: "9.00 €",
+        img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "San Sebastian Cheesecake",
+          en: "San Sebastian Basque Cheesecake",
+          de: "San Sebastian Baskischer Käsekuchen"
+        },
+        desc: {
+          tr: "İçi akışkan, karamelize kabuklu İspanyol usulü cheesecake, ılık Belçika çikolatası ile.",
+          en: "Creamy-centered Basque cheesecake with caramelized crust, served with warm Belgian chocolate.",
+          de: "Cremig gebackener baskischer Käsekuchen mit karamellisierter Kruste und Schokolade."
+        },
+        badge: {
+          tr: "Favori",
+          en: "Favorite",
+          de: "Favorit"
+        }
+      },
+      {
+        id: 11,
+        category: "dessert",
+        price: "9.50 €",
+        img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "Belçika Çikolatalı Sufle",
+          en: "Warm Belgian Chocolate Soufflé",
+          de: "Belgisches Schokoladensoufflé"
+        },
+        desc: {
+          tr: "%70 bitter Callebaut çikolatası ile hazırlanan sıcak akışkan sufle, yanında vanilyalı dondurma.",
+          en: "Rich 70% dark Callebaut chocolate lava cake served with Madagascar vanilla gelato.",
+          de: "Warmer Schokokuchen mit flüssigem 70% Callebaut-Kern und Vanilleeis."
+        },
+        badge: {
+          tr: "Sıcak Servis",
+          en: "Served Hot",
+          de: "Heiß serviert"
+        }
+      },
+      {
+        id: 12,
+        category: "dessert",
+        price: "10.50 €",
+        img: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "chef",
+        name: {
+          tr: "Antep Fıstıklı Havuç Dilim",
+          en: "Pistachio Baklava Slice",
+          de: "Gefülltes Pistazien-Baklava"
+        },
+        desc: {
+          tr: "40 kat çıtır ince yufka, bol boz fıstık ve sade yağ ile fırınlanmış eşsiz lezzet.",
+          en: "Crispy layers of paper-thin filo pastry filled with prime Antep emerald pistachios.",
+          de: "Knuspriger hauchdünner Filoteig mit feinsten Antep-Pistazien und aromatischem Sirup."
+        },
+        badge: {
+          tr: "Geleneksel",
+          en: "Traditional",
+          de: "Traditionell"
+        }
+      },
+
+      // 5. Drinks (İçecekler)
+      {
+        id: 13,
+        category: "drinks",
+        price: "4.50 €",
+        img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "vegan",
+        name: {
+          tr: "Special Filtre Kahve",
+          en: "Specialty Roast Filter Coffee",
+          de: "Spezialitäten-Filterkaffee"
+        },
+        desc: {
+          tr: "Etiyopya tek köken çekirdeklerden taze öğütülmüş V60 damlama kahve.",
+          en: "Single-origin Ethiopian beans freshly hand-poured with rich floral & citrus notes.",
+          de: "Frisch aufgebrühter V60 Handfilterkaffee aus äthiopischen Single-Origin-Bohnen."
+        },
+        badge: {
+          tr: "Organik",
+          en: "Organic",
+          de: "Bio"
+        }
+      },
+      {
+        id: 14,
+        category: "drinks",
+        price: "5.00 €",
+        img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "vegan",
+        name: {
+          tr: "Taze Nane & Zencefilli Limonata",
+          en: "Fresh Mint & Ginger Lemonade",
+          de: "Hausgemachte Minz-Ingwer-Limonade"
+        },
+        desc: {
+          tr: "Bahçe limonları, taze nane yaprakları, bal ve hafif taze zencefil özü.",
+          en: "Fresh squeezed lemons, hand-picked garden mint, pure honey, and a hint of ginger.",
+          de: "Frisch gepresste Zitronen, Gartenminze, Honig und eine feine Ingwernote."
+        },
+        badge: {
+          tr: "Ferahlatıcı",
+          en: "Refreshing",
+          de: "Erfrischend"
+        }
+      },
+      {
+        id: 15,
+        category: "drinks",
+        price: "6.50 €",
+        img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80",
+        badgeClass: "vegan",
+        name: {
+          tr: "Japon Seremoniyel Matcha Latte",
+          en: "Ceremonial Japanese Matcha Latte",
+          de: "Japanischer Matcha Latte"
+        },
+        desc: {
+          tr: "Uji menşeili seremoniyel matcha tozu, köpürtülmüş yulaf sütü ve vanilya dokunuşu.",
+          en: "Uji grade green tea matcha whisked with silky steamed oat milk and vanilla touch.",
+          de: "Hochwertiger Uji-Matcha-Tee, aufgeschäumte Hafermilch und feine Vanille."
+        },
+        badge: {
+          tr: "Detox",
+          en: "Detox",
+          de: "Detox"
+        }
+      }
+    ];
+
+    // State
+    let currentLang = localStorage.getItem('site_lang') || 'tr';
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    // DOM Elements
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const headerBadge = document.getElementById('headerBadge');
+    const headerTitle = document.getElementById('headerTitle');
+    const headerSubtitle = document.getElementById('headerSubtitle');
+    const menuSearch = document.getElementById('menuSearch');
+    const menuGrid = document.getElementById('menuGrid');
+    const categoryTabs = document.querySelectorAll('.tab-btn');
+
+    // Modal Elements
+    const itemModal = document.getElementById('itemModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalCloseAction = document.getElementById('modalCloseAction');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalDesc = document.getElementById('modalDesc');
+
+    // Update Static UI Text Based on Language
+    function updateUIText() {
+      const texts = i18n[currentLang] || i18n.tr;
+      document.documentElement.lang = currentLang;
+      headerBadge.textContent = texts.badge;
+      headerTitle.textContent = texts.title;
+      headerSubtitle.textContent = texts.subtitle;
+      menuSearch.placeholder = texts.searchPlaceholder;
+      modalCloseAction.textContent = texts.closeBtn;
+
+      // Update category tab labels
+      document.querySelectorAll('.tab-label').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (texts.categories[key]) {
+          el.textContent = texts.categories[key];
+        }
+      });
+    }
+
+    // Update Tab Counts
+    function updateCounts() {
+      document.getElementById('count-all').textContent = menuItems.length;
+      ['breakfast', 'lunch', 'dinner', 'dessert', 'drinks'].forEach(cat => {
+        const el = document.getElementById(`count-${cat}`);
+        if (el) el.textContent = menuItems.filter(i => i.category === cat).length;
+      });
+    }
+
+    // Render Menu Items (Showcase Display)
+    function renderMenu() {
+      const texts = i18n[currentLang] || i18n.tr;
+      const filtered = menuItems.filter(item => {
+        const matchCategory = currentCategory === 'all' || item.category === currentCategory;
+        const name = (item.name[currentLang] || item.name.tr).toLowerCase();
+        const desc = (item.desc[currentLang] || item.desc.tr).toLowerCase();
+        const q = searchQuery.toLowerCase();
+        const matchSearch = name.includes(q) || desc.includes(q);
+        return matchCategory && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        menuGrid.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            <p>${texts.emptyMsg}</p>
+          </div>
+        `;
+        return;
+      }
+
+      menuGrid.innerHTML = filtered.map(item => {
+        const name = item.name[currentLang] || item.name.tr;
+        const price = item.price;
+        const desc = item.desc[currentLang] || item.desc.tr;
+        const badge = item.badge[currentLang] || item.badge.tr;
+
+        return `
+          <article class="menu-card" data-id="${item.id}" tabindex="0" role="button" aria-label="${name}">
+            <div class="card-img-wrap">
+              <img src="${item.img}" alt="${name}" class="card-img" loading="lazy">
+            </div>
+            <div class="card-content">
+              <div class="card-header-row">
+                <h3 class="item-name">${name}</h3>
+                <span class="item-price">${price}</span>
+              </div>
+              <p class="item-desc">${desc}</p>
+              <div class="card-footer-row">
+                <div class="item-badges">
+                  ${badge ? `<span class="badge ${item.badgeClass}">${badge}</span>` : ''}
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      // Card Click Handler -> Opens Detail Modal
+      document.querySelectorAll('.menu-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const id = parseInt(card.getAttribute('data-id'));
+          openModal(id);
+        });
+      });
+    }
+
+    // Modal Control
+    let activeModalItem = null;
+    function openModal(id) {
+      const item = menuItems.find(i => i.id === id);
+      if (!item) return;
+      activeModalItem = item;
+      modalImg.src = item.img;
+      modalImg.alt = item.name[currentLang] || item.name.tr;
+      modalTitle.textContent = item.name[currentLang] || item.name.tr;
+      modalPrice.textContent = item.price;
+      modalDesc.textContent = item.desc[currentLang] || item.desc.tr;
+      itemModal.classList.add('active');
+      itemModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      itemModal.classList.remove('active');
+      itemModal.setAttribute('aria-hidden', 'true');
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalCloseAction.addEventListener('click', closeModal);
+    itemModal.addEventListener('click', (e) => {
+      if (e.target === itemModal) closeModal();
+    });
+
+    // Language Switching Event
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-checked', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-checked', 'true');
+        currentLang = btn.getAttribute('data-lang');
+        localStorage.setItem('site_lang', currentLang);
+
+        updateUIText();
+        renderMenu();
+
+        // If modal is open, refresh modal text too
+        if (activeModalItem && itemModal.classList.contains('active')) {
+          openModal(activeModalItem.id);
+        }
+      });
+    });
+
+    // Set initial active button for language
+    function setInitialLanguage() {
+      langBtns.forEach(btn => {
+        if (btn.getAttribute('data-lang') === currentLang) {
+          btn.classList.add('active');
+          btn.setAttribute('aria-checked', 'true');
+        } else {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-checked', 'false');
+        }
+      });
+    }
+
+    // Tab Switching
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        categoryTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        currentCategory = tab.getAttribute('data-category');
+        renderMenu();
+      });
+    });
+
+    // Search Input Listener
+    menuSearch.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      renderMenu();
+    });
+
+    // Initialize App
+    setInitialLanguage();
+    updateUIText();
+    updateCounts();
+    renderMenu();
+  </script>
+</body>
+</html>
