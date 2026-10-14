@@ -226,58 +226,50 @@ body {
   box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
 }
 
-/* Sticky Category Pills Bar (No Negative Margins) */
+/* Category Selection Grid (Clean Stacked View - No Sideways Scrolling) */
 .category-sticky-bar {
-  position: sticky;
-  top: 52px;
-  z-index: 990;
-  background: rgba(248, 247, 245, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  margin-bottom: 12px;
-  padding: 6px 0;
+  margin-bottom: 16px;
+  padding: 4px 0 10px;
   border-bottom: 1px solid rgba(236, 232, 225, 0.8);
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .category-scroll {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 2px 2px;
   width: 100%;
   box-sizing: border-box;
 }
 
-.category-scroll::-webkit-scrollbar {
-  display: none;
+@media (min-width: 520px) {
+  .category-scroll {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .cat-tab-btn {
   background: #ffffff;
-  border: 1px solid var(--border-light);
-  padding: 7px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 12.5px;
+  border: 1.5px solid var(--border-light);
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-main);
-  white-space: nowrap;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   transition: all 0.2s ease;
   font-family: inherit;
 }
 
 .cat-tab-btn:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
 .cat-tab-btn.active {
