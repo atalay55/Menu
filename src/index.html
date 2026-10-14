@@ -4,131 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Le Gourmet - Restoran Menüsü</title>
-  <meta name="description" content="Özenle hazırlanan lezzetlerimizi keşfedin. Kahvaltı, öğle, akşam yemekleri, tatlılar ve ferahlatıcı içecekler.">
+  <meta name="description" content="Özenle hazırlanan lezzetlerimizi keşfedin. Kahvaltı, öğle, akşam yemekleri, tatlılar ve içecekler.">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-  <section class="menu-section" id="our_menu">
-    <div class="menu-container">
-
-      <!-- Top Bar: Language Switcher -->
-      <div class="top-bar">
-        <div class="lang-switcher" role="radiogroup" aria-label="Dil Seçimi / Language / Sprache">
-          <button class="lang-btn active" data-lang="tr" role="radio" aria-checked="true">TR</button>
-          <button class="lang-btn" data-lang="en" role="radio" aria-checked="false">EN</button>
-          <button class="lang-btn" data-lang="de" role="radio" aria-checked="false">DE</button>
+  <!-- Sticky Top App Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <div class="brand-logo-icon">🍽️</div>
+        <div>
+          <h1 class="brand-name">Le Gourmet</h1>
+          <span class="brand-sub">Restaurant & Bistro</span>
         </div>
       </div>
       
-      <!-- Header -->
-      <header class="menu-header">
-        <span class="header-badge" id="headerBadge">
-          ✨ Lezzet Dolu Seçenekler
-        </span>
-        <h1 class="menu-title" id="headerTitle">Menümüz</h1>
-        <p class="menu-subtitle" id="headerSubtitle">
-          Usta şeflerimizin taze ve organik malzemelerle hazırladığı özel lezzetlerimizi keşfedin.
-        </p>
-        <div class="divider">
-          <div class="divider-line"></div>
-          <div class="divider-dot"></div>
-          <div class="divider-line"></div>
-        </div>
-      </header>
-
-      <!-- Controls: Search & Categories -->
-      <div class="menu-controls">
-        <!-- Live Search -->
-        <div class="search-wrapper">
-          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" id="menuSearch" class="search-input" placeholder="Menüde yemek veya içecek ara..." aria-label="Menüde ara">
-        </div>
-
-        <!-- Horizontal Scrollable Category Tabs -->
-        <div class="tabs-scroll-container">
-          <ul class="category-tabs" id="categoryTabs" role="tablist">
-            <li>
-              <button class="tab-btn active" data-category="all" role="tab" aria-selected="true">
-                <span class="tab-label" data-key="all">Tümü</span>
-                <span class="tab-count" id="count-all">15</span>
-              </button>
-            </li>
-            <li>
-              <button class="tab-btn" data-category="breakfast" role="tab" aria-selected="false">
-                <span class="tab-label" data-key="breakfast">🍳 Kahvaltı</span>
-                <span class="tab-count" id="count-breakfast">3</span>
-              </button>
-            </li>
-            <li>
-              <button class="tab-btn" data-category="lunch" role="tab" aria-selected="false">
-                <span class="tab-label" data-key="lunch">🥗 Öğle Yemeği</span>
-                <span class="tab-count" id="count-lunch">3</span>
-              </button>
-            </li>
-            <li>
-              <button class="tab-btn" data-category="dinner" role="tab" aria-selected="false">
-                <span class="tab-label" data-key="dinner">🥩 Akşam Yemeği</span>
-                <span class="tab-count" id="count-dinner">3</span>
-              </button>
-            </li>
-            <li>
-              <button class="tab-btn" data-category="dessert" role="tab" aria-selected="false">
-                <span class="tab-label" data-key="dessert">🍰 Tatlılar</span>
-                <span class="tab-count" id="count-dessert">3</span>
-              </button>
-            </li>
-            <li>
-              <button class="tab-btn" data-category="drinks" role="tab" aria-selected="false">
-                <span class="tab-label" data-key="drinks">🍹 İçecekler</span>
-                <span class="tab-count" id="count-drinks">3</span>
-              </button>
-            </li>
-          </ul>
-        </div>
+      <!-- Language Switcher -->
+      <div class="lang-switcher" role="radiogroup" aria-label="Dil Seçimi / Language / Sprache">
+        <button class="lang-btn active" data-lang="tr" role="radio" aria-checked="true">TR</button>
+        <button class="lang-btn" data-lang="en" role="radio" aria-checked="false">EN</button>
+        <button class="lang-btn" data-lang="de" role="radio" aria-checked="false">DE</button>
       </div>
-
-      <!-- Menu Items Grid (Showcase Only) -->
-      <main class="menu-grid" id="menuGrid" aria-live="polite">
-        <!-- Javascript dynamically renders items here -->
-      </main>
-
-      <!-- Bottom Action -->
-     
-
     </div>
-  </section>
+  </header>
 
-  <!-- Item Detail Modal (Showcase Only) -->
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+
+    <!-- Hero Greeting -->
+    <section class="menu-hero">
+      <span class="hero-badge" id="heroBadge">✨ Şefin Özel Seçkisi</span>
+      <h2 class="hero-title" id="heroTitle">Menümüz</h2>
+      <p class="hero-desc" id="heroDesc">
+        Taze ve organik malzemelerle hazırlanan eşsiz lezzetlerimizi keşfedin.
+      </p>
+    </section>
+
+    <!-- Search Box -->
+    <div class="search-box-wrap">
+      <svg class="search-icon-svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="menuSearch" class="menu-search-input" placeholder="Menüde yemek veya içecek ara..." aria-label="Menüde ara">
+    </div>
+
+    <!-- Sticky Horizontal Category Pills -->
+    <nav class="category-sticky-bar" aria-label="Kategoriler">
+      <div class="category-scroll" id="categoryScroll">
+        <button class="cat-tab-btn active" data-category="all">
+          <span class="tab-label" data-key="all">Tümü</span>
+          <span class="cat-count" id="count-all">15</span>
+        </button>
+        <button class="cat-tab-btn" data-category="breakfast">
+          <span class="tab-label" data-key="breakfast">🍳 Kahvaltı</span>
+          <span class="cat-count" id="count-breakfast">3</span>
+        </button>
+        <button class="cat-tab-btn" data-category="lunch">
+          <span class="tab-label" data-key="lunch">🥗 Öğle Yemeği</span>
+          <span class="cat-count" id="count-lunch">3</span>
+        </button>
+        <button class="cat-tab-btn" data-category="dinner">
+          <span class="tab-label" data-key="dinner">🥩 Akşam Yemeği</span>
+          <span class="cat-count" id="count-dinner">3</span>
+        </button>
+        <button class="cat-tab-btn" data-category="dessert">
+          <span class="tab-label" data-key="dessert">🍰 Tatlılar</span>
+          <span class="cat-count" id="count-dessert">3</span>
+        </button>
+        <button class="cat-tab-btn" data-category="drinks">
+          <span class="tab-label" data-key="drinks">🍹 İçecekler</span>
+          <span class="cat-count" id="count-drinks">3</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu Items List -->
+    <div class="menu-list" id="menuList" aria-live="polite">
+      <!-- Items dynamically populated -->
+    </div>
+
+  </main>
+
+  <!-- Bottom Sheet / Modal (Showcase Preview) -->
   <div class="modal-overlay" id="itemModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close-btn" id="modalClose" aria-label="Kapat">&times;</button>
-      <img src="" alt="" class="modal-img" id="modalImg">
-      <div class="modal-body">
-        <div class="modal-title-row">
-          <h3 class="modal-title" id="modalTitle"></h3>
-          <span class="modal-price" id="modalPrice"></span>
+    <div class="bottom-sheet">
+      <div class="sheet-handle"></div>
+      <button class="sheet-close-btn" id="modalClose" aria-label="Kapat">&times;</button>
+      <img src="" alt="" class="sheet-img" id="modalImg">
+      <div class="sheet-body">
+        <div class="sheet-title-row">
+          <h3 class="sheet-title" id="modalTitle"></h3>
+          <span class="sheet-price" id="modalPrice"></span>
         </div>
-        <p class="modal-desc" id="modalDesc"></p>
-        <button class="modal-order-btn" id="modalCloseAction">Kapat</button>
+        <p class="sheet-desc" id="modalDesc"></p>
+        <button class="sheet-close-action-btn" id="modalCloseAction">Kapat</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Internationalization (i18n) Dictionary
+    // Internationalization (i18n)
     const i18n = {
       tr: {
-        badge: "✨ Lezzet Dolu Seçenekler",
+        badge: "✨ Şefin Özel Seçkisi",
         title: "Menümüz",
-        subtitle: "Usta şeflerimizin taze ve organik malzemelerle hazırladığı özel lezzetlerimizi keşfedin.",
-        searchPlaceholder: "Menüde yemek veya içecek ara...",
-       
+        subtitle: "Taze ve organik malzemelerle hazırlanan eşsiz lezzetlerimizi keşfedin.",
+        searchPlaceholder: "Menüde ara...",
         closeBtn: "Kapat",
-        emptyMsg: "Aramanıza uygun bir lezzet bulunamadı. Lütfen başka bir kelime deneyin.",
+        emptyMsg: "Aramanıza uygun lezzet bulunamadı.",
         categories: {
           all: "Tümü",
           breakfast: "🍳 Kahvaltı",
@@ -139,13 +124,12 @@
         }
       },
       en: {
-        badge: "✨ Flavors Crafted to Perfection",
+        badge: "✨ Chef's Special Selection",
         title: "Our Menu",
-        subtitle: "Discover exceptional culinary creations prepared by master chefs using the freshest ingredients.",
-        searchPlaceholder: "Search food or drinks...",
-        reserveBtn: "Reserve a Table",
+        subtitle: "Discover exceptional culinary creations prepared with fresh organic ingredients.",
+        searchPlaceholder: "Search dishes or drinks...",
         closeBtn: "Close",
-        emptyMsg: "No dishes found matching your search. Try another keyword.",
+        emptyMsg: "No dishes found matching your search.",
         categories: {
           all: "All",
           breakfast: "🍳 Breakfast",
@@ -156,13 +140,12 @@
         }
       },
       de: {
-        badge: "✨ Kulinarische Meisterwerke",
-        title: "Unsere Speisekarte",
-        subtitle: "Entdecken Sie exklusive Gourmetgerichte, zubereitet von Meisterköchen mit feinsten frischen Zutaten.",
-        searchPlaceholder: "Speisen oder Getränke suchen...",
-        reserveBtn: "Tisch reservieren",
+        badge: "✨ Empfehlung des Küchenchefs",
+        title: "Speisekarte",
+        subtitle: "Entdecken Sie kulinarische Köstlichkeiten aus frischen Zutaten.",
+        searchPlaceholder: "Gerichte oder Getränke suchen...",
         closeBtn: "Schließen",
-        emptyMsg: "Keine passenden Gerichte gefunden. Bitte versuchen Sie einen anderen Begriff.",
+        emptyMsg: "Keine passenden Gerichte gefunden.",
         categories: {
           all: "Alle",
           breakfast: "🍳 Frühstück",
@@ -174,9 +157,9 @@
       }
     };
 
-    // Menu Data with Consistent Euro (€) Pricing Across All Languages
+    // Menu Data (All in Euro)
     const menuItems = [
-      // 1. Breakfast (Kahvaltı)
+      // Breakfast
       {
         id: 1,
         category: "breakfast",
@@ -190,8 +173,8 @@
         },
         desc: {
           tr: "Özel soslu çıtır tavuk fileto, eritilmiş cheddar peyniri ve taze yeşillikler.",
-          en: "Crispy chicken breast with chef's secret sauce, melted cheddar, and farm-fresh greens.",
-          de: "Knusprige Hähnchenbrust mit Spezialsauce, geschmolzenem Cheddar und frischem Salat."
+          en: "Crispy chicken breast with chef's secret sauce, melted cheddar, and farm greens.",
+          de: "Knusprige Hähnchenbrust mit Spezialsauce, geschmolzenem Cheddar und Salat."
         },
         badge: {
           tr: "Popüler",
@@ -212,8 +195,8 @@
         },
         desc: {
           tr: "Ezine peyniri, ev yapımı reçeller, organik zeytinler, tereyağı ve fırından sıcak simit.",
-          en: "Artisanal cheeses, homemade fruit jams, organic olives, fresh butter, and warm sesame simit.",
-          de: "Feine Käsesorten, hausgemachte Marmelade, Bio-Oliven, Butter und ofenwarmes Simit-Gebäck."
+          en: "Artisanal cheeses, homemade fruit jams, organic olives, butter, and warm sesame simit.",
+          de: "Feine Käsesorten, Marmelade, Bio-Oliven, Butter und ofenwarmes Simit."
         },
         badge: {
           tr: "Şefin Seçimi",
@@ -244,7 +227,7 @@
         }
       },
 
-      // 2. Lunch (Öğle Yemeği)
+      // Lunch
       {
         id: 4,
         category: "lunch",
@@ -257,9 +240,9 @@
           de: "Steinofen Margherita Pizza"
         },
         desc: {
-          tr: "48 saat mayalanmış İtalyan hamuru, manda mozzarella, San Marzano domates sosu ve fesleğen.",
-          en: "48-hour fermented dough, buffalo mozzarella, San Marzano tomato sauce, and fresh basil.",
-          de: "48 Stunden fermentierter Teig, Büffelmozzarella, San-Marzano-Tomatensauce und Basilikum."
+          tr: "48 saat mayalanmış hamur, manda mozzarella, San Marzano domates sosu ve fesleğen.",
+          en: "48-hour fermented dough, buffalo mozzarella, San Marzano tomato sauce, and basil.",
+          de: "48 Stunden fermentierter Teig, Büffelmozzarella, Tomatensauce und Basilikum."
         },
         badge: {
           tr: "Vejetaryen",
@@ -297,13 +280,13 @@
         badgeClass: "chef",
         name: {
           tr: "Kremalı Mantarlı Fettuccine",
-          en: "Creamy Truffle Mushroom Fettuccine",
-          de: "Cremige Trüffel-Pilz-Fettuccine"
+          en: "Creamy Truffle Fettuccine",
+          de: "Cremige Trüffel-Fettuccine"
         },
         desc: {
           tr: "Taze el yapımı fettuccine, porçini ve kestane mantarı, trüf aroması ve parmesan.",
-          en: "Handmade fresh fettuccine, porcini & cremini mushrooms, truffle essence, and parmesan.",
-          de: "Hausgemachte frische Fettuccine, Stein- und Waldpilze, Trüffelaroma und Parmesan."
+          en: "Handmade fresh fettuccine, porcini & wild mushrooms, truffle essence, and parmesan.",
+          de: "Hausgemachte frische Fettuccine, Waldpilze, Trüffelaroma und Parmesan."
         },
         badge: {
           tr: "Çok Satan",
@@ -312,7 +295,7 @@
         }
       },
 
-      // 3. Dinner (Akşam Yemeği)
+      // Dinner
       {
         id: 7,
         category: "dinner",
@@ -324,11 +307,10 @@
           en: "Grilled Ribeye Steak",
           de: "Gegrilltes Ribeye-Steak"
         },
-        price: "29.00 €",
         desc: {
-          tr: "Meşe kömüründe pişirilmiş 28 gün dinlendirilmiş et, tereyağlı bebek patates ve kuşkonmaz.",
-          en: "28-day dry-aged ribeye steak, roasted baby potatoes, and grilled buttered asparagus.",
-          de: "28 Tage gereiftes Ribeye-Steak über Holzkohle gegrillt, Rosmarinkartoffeln und Spargel."
+          tr: "Meşe kömüründe dinlendirilmiş et, tereyağlı bebek patates ve ızgara kuşkonmaz.",
+          en: "Dry-aged ribeye steak, roasted baby potatoes, and grilled buttered asparagus.",
+          de: "Gereiftes Ribeye-Steak über Holzkohle gegrillt, Rosmarinkartoffeln und Spargel."
         },
         badge: {
           tr: "Şefin İmzası",
@@ -345,12 +327,12 @@
         name: {
           tr: "Deniz Mahsüllü Paella",
           en: "Seafood Saffron Paella",
-          de: "Mediterrane Meeresfrüchte-Paella"
+          de: "Meeresfrüchte-Paella"
         },
         desc: {
           tr: "Safranlı pirinç yatağında jumbo karides, kalamar, midye ve taze Akdeniz baharatları.",
           en: "Traditional saffron rice with tiger prawns, tender calamari, black mussels, and herbs.",
-          de: "Traditioneller Safranreis mit Riesengarnelen, zartem Calamari, Muscheln und Kräutern."
+          de: "Safranreis mit Riesengarnelen, zartem Calamari, Muscheln und Kräutern."
         },
         badge: {
           tr: "Özel Lezzet",
@@ -367,12 +349,12 @@
         name: {
           tr: "Fırında Kuzu İncik",
           en: "Slow-Braised Lamb Shank",
-          de: "Zart geschmorte Lammhaxe"
+          de: "Geschmorte Lammhaxe"
         },
         desc: {
           tr: "Ağır ateşte 6 saat nar gibi pişirilmiş kuzu incik, kadife patates püresi ile.",
-          en: "Fall-off-the-bone lamb shank slow-braised for 6 hours, served with velvet potato puree.",
-          de: "6 Stunden sanft geschmorte Lammhaxe, serviert auf cremigem Samtkartoffelpüree."
+          en: "Fall-off-the-bone lamb shank slow-braised for 6 hours with velvet potato puree.",
+          de: "6 Stunden sanft geschmorte Lammhaxe auf cremigem Kartoffelpüree."
         },
         badge: {
           tr: "Klasik",
@@ -381,7 +363,7 @@
         }
       },
 
-      // 4. Desserts (Tatlılar)
+      // Desserts
       {
         id: 10,
         category: "dessert",
@@ -390,13 +372,13 @@
         badgeClass: "chef",
         name: {
           tr: "San Sebastian Cheesecake",
-          en: "San Sebastian Basque Cheesecake",
-          de: "San Sebastian Baskischer Käsekuchen"
+          en: "San Sebastian Cheesecake",
+          de: "San Sebastian Käsekuchen"
         },
         desc: {
-          tr: "İçi akışkan, karamelize kabuklu İspanyol usulü cheesecake, ılık Belçika çikolatası ile.",
-          en: "Creamy-centered Basque cheesecake with caramelized crust, served with warm Belgian chocolate.",
-          de: "Cremig gebackener baskischer Käsekuchen mit karamellisierter Kruste und Schokolade."
+          tr: "İçi akışkan, karamelize kabuklu İspanyol cheesecake, ılık Belçika çikolatası ile.",
+          en: "Creamy Basque cheesecake with caramelized crust, served with warm chocolate.",
+          de: "Cremig gebackener baskischer Käsekuchen mit Schokoladensauce."
         },
         badge: {
           tr: "Favori",
@@ -412,13 +394,13 @@
         badgeClass: "chef",
         name: {
           tr: "Belçika Çikolatalı Sufle",
-          en: "Warm Belgian Chocolate Soufflé",
-          de: "Belgisches Schokoladensoufflé"
+          en: "Belgian Chocolate Soufflé",
+          de: "Schokoladensoufflé"
         },
         desc: {
-          tr: "%70 bitter Callebaut çikolatası ile hazırlanan sıcak akışkan sufle, yanında vanilyalı dondurma.",
-          en: "Rich 70% dark Callebaut chocolate lava cake served with Madagascar vanilla gelato.",
-          de: "Warmer Schokokuchen mit flüssigem 70% Callebaut-Kern und Vanilleeis."
+          tr: "%70 bitter Callebaut çikolatası ile sıcak akışkan sufle, vanilyalı dondurma.",
+          en: "Rich dark Callebaut chocolate lava cake served with vanilla gelato.",
+          de: "Warmer Schokokuchen mit flüssigem Callebaut-Kern und Vanilleeis."
         },
         badge: {
           tr: "Sıcak Servis",
@@ -433,14 +415,14 @@
         img: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=400&q=80",
         badgeClass: "chef",
         name: {
-          tr: "Antep Fıstıklı Havuç Dilim",
-          en: "Pistachio Baklava Slice",
-          de: "Gefülltes Pistazien-Baklava"
+          tr: "Antep Fıstıklı Baklava",
+          en: "Pistachio Baklava",
+          de: "Pistazien-Baklava"
         },
         desc: {
-          tr: "40 kat çıtır ince yufka, bol boz fıstık ve sade yağ ile fırınlanmış eşsiz lezzet.",
-          en: "Crispy layers of paper-thin filo pastry filled with prime Antep emerald pistachios.",
-          de: "Knuspriger hauchdünner Filoteig mit feinsten Antep-Pistazien und aromatischem Sirup."
+          tr: "Çıtır ince yufka, bol boz fıstık ve sade yağ ile fırınlanmış geleneksel lezzet.",
+          en: "Crispy filo pastry filled with prime Antep emerald pistachios and syrup.",
+          de: "Hauchdünner Filoteig mit feinsten Antep-Pistazien und aromatischem Sirup."
         },
         badge: {
           tr: "Geleneksel",
@@ -449,7 +431,7 @@
         }
       },
 
-      // 5. Drinks (İçecekler)
+      // Drinks
       {
         id: 13,
         category: "drinks",
@@ -458,13 +440,13 @@
         badgeClass: "vegan",
         name: {
           tr: "Special Filtre Kahve",
-          en: "Specialty Roast Filter Coffee",
-          de: "Spezialitäten-Filterkaffee"
+          en: "Specialty Filter Coffee",
+          de: "Spezial-Filterkaffee"
         },
         desc: {
           tr: "Etiyopya tek köken çekirdeklerden taze öğütülmüş V60 damlama kahve.",
-          en: "Single-origin Ethiopian beans freshly hand-poured with rich floral & citrus notes.",
-          de: "Frisch aufgebrühter V60 Handfilterkaffee aus äthiopischen Single-Origin-Bohnen."
+          en: "Single-origin Ethiopian beans freshly hand-poured with floral notes.",
+          de: "Frisch aufgebrühter V60 Handfilterkaffee aus äthiopischen Bohnen."
         },
         badge: {
           tr: "Organik",
@@ -480,13 +462,13 @@
         badgeClass: "vegan",
         name: {
           tr: "Taze Nane & Zencefilli Limonata",
-          en: "Fresh Mint & Ginger Lemonade",
-          de: "Hausgemachte Minz-Ingwer-Limonade"
+          en: "Fresh Mint Lemonade",
+          de: "Minz-Limonade"
         },
         desc: {
           tr: "Bahçe limonları, taze nane yaprakları, bal ve hafif taze zencefil özü.",
-          en: "Fresh squeezed lemons, hand-picked garden mint, pure honey, and a hint of ginger.",
-          de: "Frisch gepresste Zitronen, Gartenminze, Honig und eine feine Ingwernote."
+          en: "Fresh squeezed lemons, garden mint, pure honey, and a hint of ginger.",
+          de: "Frisch gepresste Zitronen, Gartenminze, Honig und feine Ingwernote."
         },
         badge: {
           tr: "Ferahlatıcı",
@@ -501,14 +483,14 @@
         img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80",
         badgeClass: "vegan",
         name: {
-          tr: "Japon Seremoniyel Matcha Latte",
-          en: "Ceremonial Japanese Matcha Latte",
+          tr: "Japon Matcha Latte",
+          en: "Japanese Matcha Latte",
           de: "Japanischer Matcha Latte"
         },
         desc: {
-          tr: "Uji menşeili seremoniyel matcha tozu, köpürtülmüş yulaf sütü ve vanilya dokunuşu.",
-          en: "Uji grade green tea matcha whisked with silky steamed oat milk and vanilla touch.",
-          de: "Hochwertiger Uji-Matcha-Tee, aufgeschäumte Hafermilch und feine Vanille."
+          tr: "Uji seremoniyel matcha tozu, köpürtülmüş yulaf sütü ve vanilya dokunuşu.",
+          en: "Ceremonial matcha whisked with steamed oat milk and vanilla touch.",
+          de: "Hochwertiger Matcha-Tee mit aufgeschäumter Hafermilch und Vanille."
         },
         badge: {
           tr: "Detox",
@@ -523,14 +505,14 @@
     let currentCategory = 'all';
     let searchQuery = '';
 
-    // DOM Elements
+    // Elements
     const langBtns = document.querySelectorAll('.lang-btn');
-    const headerBadge = document.getElementById('headerBadge');
-    const headerTitle = document.getElementById('headerTitle');
-    const headerSubtitle = document.getElementById('headerSubtitle');
+    const heroBadge = document.getElementById('heroBadge');
+    const heroTitle = document.getElementById('heroTitle');
+    const heroDesc = document.getElementById('heroDesc');
     const menuSearch = document.getElementById('menuSearch');
-    const menuGrid = document.getElementById('menuGrid');
-    const categoryTabs = document.querySelectorAll('.tab-btn');
+    const menuList = document.getElementById('menuList');
+    const categoryTabs = document.querySelectorAll('.cat-tab-btn');
 
     // Modal Elements
     const itemModal = document.getElementById('itemModal');
@@ -541,17 +523,16 @@
     const modalPrice = document.getElementById('modalPrice');
     const modalDesc = document.getElementById('modalDesc');
 
-    // Update Static UI Text Based on Language
+    // Update Static UI Text
     function updateUIText() {
       const texts = i18n[currentLang] || i18n.tr;
       document.documentElement.lang = currentLang;
-      headerBadge.textContent = texts.badge;
-      headerTitle.textContent = texts.title;
-      headerSubtitle.textContent = texts.subtitle;
+      heroBadge.textContent = texts.badge;
+      heroTitle.textContent = texts.title;
+      heroDesc.textContent = texts.subtitle;
       menuSearch.placeholder = texts.searchPlaceholder;
       modalCloseAction.textContent = texts.closeBtn;
 
-      // Update category tab labels
       document.querySelectorAll('.tab-label').forEach(el => {
         const key = el.getAttribute('data-key');
         if (texts.categories[key]) {
@@ -560,7 +541,7 @@
       });
     }
 
-    // Update Tab Counts
+    // Update Category Counts
     function updateCounts() {
       document.getElementById('count-all').textContent = menuItems.length;
       ['breakfast', 'lunch', 'dinner', 'dessert', 'drinks'].forEach(cat => {
@@ -569,7 +550,7 @@
       });
     }
 
-    // Render Menu Items (Showcase Display)
+    // Render Menu Items (Mobile First Cards)
     function renderMenu() {
       const texts = i18n[currentLang] || i18n.tr;
       const filtered = menuItems.filter(item => {
@@ -577,13 +558,12 @@
         const name = (item.name[currentLang] || item.name.tr).toLowerCase();
         const desc = (item.desc[currentLang] || item.desc.tr).toLowerCase();
         const q = searchQuery.toLowerCase();
-        const matchSearch = name.includes(q) || desc.includes(q);
-        return matchCategory && matchSearch;
+        return matchCategory && (name.includes(q) || desc.includes(q));
       });
 
       if (filtered.length === 0) {
-        menuGrid.innerHTML = `
-          <div class="empty-state">
+        menuList.innerHTML = `
+          <div class="empty-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="8" y1="12" x2="16" y2="12"></line>
@@ -594,35 +574,32 @@
         return;
       }
 
-      menuGrid.innerHTML = filtered.map(item => {
+      menuList.innerHTML = filtered.map(item => {
         const name = item.name[currentLang] || item.name.tr;
-        const price = item.price;
         const desc = item.desc[currentLang] || item.desc.tr;
         const badge = item.badge[currentLang] || item.badge.tr;
 
         return `
-          <article class="menu-card" data-id="${item.id}" tabindex="0" role="button" aria-label="${name}">
-            <div class="card-img-wrap">
-              <img src="${item.img}" alt="${name}" class="card-img" loading="lazy">
+          <article class="food-card" data-id="${item.id}" tabindex="0" role="button" aria-label="${name}">
+            <div class="food-info">
+              <div class="food-title-row">
+                <h3 class="food-title">${name}</h3>
+              </div>
+              <p class="food-desc">${desc}</p>
+              <div class="food-meta-row">
+                <span class="food-price">${item.price}</span>
+                ${badge ? `<span class="food-badge ${item.badgeClass}">${badge}</span>` : ''}
+              </div>
             </div>
-            <div class="card-content">
-              <div class="card-header-row">
-                <h3 class="item-name">${name}</h3>
-                <span class="item-price">${price}</span>
-              </div>
-              <p class="item-desc">${desc}</p>
-              <div class="card-footer-row">
-                <div class="item-badges">
-                  ${badge ? `<span class="badge ${item.badgeClass}">${badge}</span>` : ''}
-                </div>
-              </div>
+            <div class="food-thumb-wrap">
+              <img src="${item.img}" alt="${name}" class="food-thumb" loading="lazy">
             </div>
           </article>
         `;
       }).join('');
 
-      // Card Click Handler -> Opens Detail Modal
-      document.querySelectorAll('.menu-card').forEach(card => {
+      // Card Click Handler -> Open Bottom Sheet
+      document.querySelectorAll('.food-card').forEach(card => {
         card.addEventListener('click', () => {
           const id = parseInt(card.getAttribute('data-id'));
           openModal(id);
@@ -643,11 +620,13 @@
       modalDesc.textContent = item.desc[currentLang] || item.desc.tr;
       itemModal.classList.add('active');
       itemModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
       itemModal.classList.remove('active');
       itemModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
     }
 
     modalClose.addEventListener('click', closeModal);
@@ -656,7 +635,7 @@
       if (e.target === itemModal) closeModal();
     });
 
-    // Language Switching Event
+    // Language Switcher Event
     langBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         langBtns.forEach(b => {
@@ -671,14 +650,12 @@
         updateUIText();
         renderMenu();
 
-        // If modal is open, refresh modal text too
         if (activeModalItem && itemModal.classList.contains('active')) {
           openModal(activeModalItem.id);
         }
       });
     });
 
-    // Set initial active button for language
     function setInitialLanguage() {
       langBtns.forEach(btn => {
         if (btn.getAttribute('data-lang') === currentLang) {
@@ -691,21 +668,17 @@
       });
     }
 
-    // Tab Switching
+    // Category Tabs Switching
     categoryTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        categoryTabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
+        categoryTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
         currentCategory = tab.getAttribute('data-category');
         renderMenu();
       });
     });
 
-    // Search Input Listener
+    // Search Input Event
     menuSearch.addEventListener('input', (e) => {
       searchQuery = e.target.value.trim();
       renderMenu();
