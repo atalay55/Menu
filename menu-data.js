@@ -378,17 +378,17 @@ const menuItems = [
     id: 10,
     category: "tatli",
     price: "2.00 €",
-    img: "./images/kruvasan.jpg",
+    img: "./images/churros-citir.jpg",
     badgeClass: "chef",
     name: {
-      tr: "Çıtır Kruvasan (Krus - 3 Adet)",
-      en: "Crispy Croissants (3 Pcs)",
-      de: "Knusprige Croissants (3 Stück)",
+      tr: "Çıtır İspanyol Churros (3 Adet)",
+      en: "Crispy Spanish Churros (3 Pcs)",
+      de: "Knusprige Churros (3 Stück)",
     },
     desc: {
-      tr: "3 adet Fransız tereyağlı kat kat çıtır kruvasan, akışkan Nutella çikolata dolgusu ve pudra şekeri ile.",
-      en: "3 flaky French butter croissants served with warm Nutella and powdered sugar.",
-      de: "3 knusprig-buttrige Croissants serviert mit feiner Nutella und Puderzucker.",
+      tr: "3 adet sıcacık çıtır çıtır churros çubukları, tarçınlı şeker kaplaması ve yanında sıcak akışkan Nutella çikolata sosu ile.",
+      en: "3 freshly fried golden crispy churros rolled in cinnamon sugar, served with warm dipping Nutella chocolate sauce.",
+      de: "3 ofenfrische goldbraune Churros in Zimt-Zucker gewälzt, serviert mit flüssiger warmer Nutella-Schokosauce.",
     },
     badge: {
       tr: "3 Adet / 2.00 €",
@@ -396,9 +396,9 @@ const menuItems = [
       de: "3 Stück / 2.00 €",
     },
     ingredients: {
-      tr: ["🥐 3 Adet Kruvasan", "🍫 Akışkan Nutella", "✨ Pudra Şekeri"],
-      en: ["🥐 3 Pcs Croissant", "🍫 Melted Nutella", "✨ Powdered Sugar"],
-      de: ["🥐 3 Stück Croissant", "🍫 Nutella", "✨ Puderzucker"],
+      tr: ["🥖 3 Adet Çıtır Churros", "🍫 Sıcak Nutella Sos", "✨ Tarçınlı Şeker"],
+      en: ["🥖 3 Crispy Churros", "🍫 Warm Nutella Dip", "✨ Cinnamon Sugar"],
+      de: ["🥖 3 Knusprige Churros", "🍫 Warme Nutella-Sauce", "✨ Zimt-Zucker"],
     },
   },
   {
@@ -515,7 +515,7 @@ const menuItems = [
     id: 14,
     category: "hamur-isi",
     price: "2.50 €",
-    img: "./images/pogaca.jpg",
+    img: "./images/pogaca-taze.jpg",
     badgeClass: "chef",
     name: {
       tr: "Sıcak Poğaça Çeşitleri",
