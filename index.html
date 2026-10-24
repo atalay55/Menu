@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Fatih Cami Menü</title>
-  <meta name="description" content="Fatih Cami Menü - Lezzetli seçenekler, kahvaltı, öğle, akşam yemekleri, tatlılar ve ferahlatıcı içecekler.">
+  <meta name="description" content="Fatih Cami Menü - Lezzetli seçenekler, grill, tatlı, hamur işi, içecek ve salatalar.">
   <link rel="stylesheet" href="./style.css?v=2.0">
 </head>
 <body>
@@ -15,8 +15,8 @@
       <div class="brand-wrap">
         <div class="brand-logo-icon">🕌</div>
         <div>
-          <h1 class="brand-name">Fatih Cami Menü</h1>
-          <span class="brand-sub">Fatih Camii & Külliyesi</span>
+          <h1 class="brand-name">Fatih Camii Würzburg</h1>
+          <span class="brand-sub">Integration, Kultur & Bildung e.V.</span>
         </div>
       </div>
       
@@ -32,13 +32,34 @@
   <!-- Main Content Wrapper -->
   <main class="main-wrapper">
 
-    <!-- Hero Greeting -->
+    <!-- Hero Greeting (Gemeindefest 2026) -->
     <section class="menu-hero">
-      <span class="hero-badge" id="heroBadge">✨ Şefin Özel Seçkisi</span>
-      <h2 class="hero-title" id="heroTitle">Menümüz</h2>
+      <span class="hero-badge" id="heroBadge">🕌 Würzburg Fatih Camii & Talebe Yurdu</span>
+      <h2 class="hero-title" id="heroTitle">Gemeindefest 2026</h2>
+      <div class="hero-ribbon">
+        <span>BEGEGNUNG • KULTUR • GENUSS</span>
+      </div>
       <p class="hero-desc" id="heroDesc">
-        Taze ve organik malzemelerle hazırlanan eşsiz lezzetlerimizi keşfedin.
+        Geleneksel lezzetler, samimi sohbetler ve zengin festival menümüzü keşfedin.
       </p>
+    </section>
+
+    <!-- Moschee Führungen Card (Poster Sync: Item 6) -->
+    <section class="tour-card" id="tourCard" aria-label="Moschee Führungen">
+      <div class="tour-header">
+        <div class="tour-icon-wrap">🕌</div>
+        <div class="tour-info">
+          <h3 class="tour-title" id="tourTitle">Moschee Führungen</h3>
+          <p class="tour-sub" id="tourSub">mit einer Einführung zum Islam</p>
+        </div>
+        <div class="tour-badge-times">
+          <span class="tour-time-pill">🕒 13:00 Uhr</span>
+          <span class="tour-time-pill">🕒 16:00 Uhr</span>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <span class="tour-highlight" id="tourTag">Fragen stellen • Geschichte entdecken • Einblicke gewinnen</span>
+      </div>
     </section>
 
     <!-- Search Box -->
@@ -55,27 +76,27 @@
       <div class="category-scroll" id="categoryScroll">
         <button class="cat-tab-btn active" data-category="all">
           <span class="tab-label" data-key="all">Tümü</span>
-          <span class="cat-count" id="count-all">15</span>
+          <span class="cat-count" id="count-all">32</span>
         </button>
-        <button class="cat-tab-btn" data-category="breakfast">
-          <span class="tab-label" data-key="breakfast">🍳 Kahvaltı</span>
-          <span class="cat-count" id="count-breakfast">3</span>
+        <button class="cat-tab-btn" data-category="grill">
+          <span class="tab-label" data-key="grill">🔥 Grill</span>
+          <span class="cat-count" id="count-grill">6</span>
         </button>
-        <button class="cat-tab-btn" data-category="lunch">
-          <span class="tab-label" data-key="lunch">🥗 Öğle Yemeği</span>
-          <span class="cat-count" id="count-lunch">3</span>
+        <button class="cat-tab-btn" data-category="tatli">
+          <span class="tab-label" data-key="tatli">🍰 Tatlı</span>
+          <span class="cat-count" id="count-tatli">5</span>
         </button>
-        <button class="cat-tab-btn" data-category="dinner">
-          <span class="tab-label" data-key="dinner">🥩 Akşam Yemeği</span>
-          <span class="cat-count" id="count-dinner">3</span>
+        <button class="cat-tab-btn" data-category="hamur-isi">
+          <span class="tab-label" data-key="hamur-isi">🥟 Hamur İşi</span>
+          <span class="cat-count" id="count-hamur-isi">4</span>
         </button>
-        <button class="cat-tab-btn" data-category="dessert">
-          <span class="tab-label" data-key="dessert">🍰 Tatlılar</span>
-          <span class="cat-count" id="count-dessert">3</span>
+        <button class="cat-tab-btn" data-category="icecek">
+          <span class="tab-label" data-key="icecek">🍹 İçecek</span>
+          <span class="cat-count" id="count-icecek">9</span>
         </button>
-        <button class="cat-tab-btn" data-category="drinks">
-          <span class="tab-label" data-key="drinks">🍹 İçecekler</span>
-          <span class="cat-count" id="count-drinks">3</span>
+        <button class="cat-tab-btn" data-category="salata">
+          <span class="tab-label" data-key="salata">🥗 Salata</span>
+          <span class="cat-count" id="count-salata">8</span>
         </button>
       </div>
     </nav>
@@ -98,7 +119,9 @@
           <h3 class="sheet-title" id="modalTitle"></h3>
           <span class="sheet-price" id="modalPrice"></span>
         </div>
+        <div class="modal-vegan-banner" id="modalVeganBadge" style="display: none;">🌱 %100 Vegan</div>
         <p class="sheet-desc" id="modalDesc"></p>
+        <div class="sheet-ingredients" id="modalIngredients" style="display: none;"></div>
         <button class="sheet-close-action-btn" id="modalCloseAction">Kapat</button>
       </div>
     </div>
@@ -111,51 +134,66 @@
     // Internationalization (i18n)
     const i18n = {
       tr: {
-        badge: "✨ Özel Seçki",
-        title: "Fatih Cami Menü",
-        subtitle: "Özenle hazırlanan taze ve leziz ikramlarımızı keşfedin.",
-        searchPlaceholder: "Menüde ara...",
+        badge: "🕌 Würzburg Fatih Camii & Talebe Yurdu",
+        title: "Gemeindefest 2026",
+        subtitle: "Geleneksel lezzetler, samimi sohbetler ve zengin festival menümüzü keşfedin.",
+        searchPlaceholder: "Menüde lezzet ara...",
         closeBtn: "Kapat",
         emptyMsg: "Aramanıza uygun lezzet bulunamadı.",
+        tour: {
+          title: "Cami Tanıtım Turları",
+          sub: "İslamiyet ve Cami Mimarisi Rehberli Tanıtımı",
+          tag: "Sorular sorun • Tarihi keşfedin • Bilgi edinin"
+        },
         categories: {
           all: "Tümü",
-          breakfast: "🍳 Kahvaltı",
-          lunch: "🥗 Öğle Yemeği",
-          dinner: "🥩 Akşam Yemeği",
-          dessert: "🍰 Tatlılar",
-          drinks: "🍹 İçecekler"
+          grill: "🔥 Grill",
+          tatli: "🍰 Tatlı",
+          "hamur-isi": "🥟 Hamur İşi",
+          icecek: "🍹 İçecek",
+          salata: "🥗 Salata"
         }
       },
       en: {
-        badge: "✨ Special Selection",
-        title: "Fatih Mosque Menu",
-        subtitle: "Discover our freshly prepared authentic and gourmet selections.",
-        searchPlaceholder: "Search dishes or drinks...",
+        badge: "🕌 Würzburg Fatih Mosque & Student Home",
+        title: "Gemeindefest 2026",
+        subtitle: "Encounter • Culture • Taste — Discover authentic delicacies and community hospitality.",
+        searchPlaceholder: "Search festival menu...",
         closeBtn: "Close",
         emptyMsg: "No dishes found matching your search.",
+        tour: {
+          title: "Mosque Guided Tours",
+          sub: "with an Introduction to Islam",
+          tag: "Ask questions • Discover history • Gain insights"
+        },
         categories: {
           all: "All",
-          breakfast: "🍳 Breakfast",
-          lunch: "🥗 Lunch",
-          dinner: "🥩 Dinner",
-          dessert: "🍰 Desserts",
-          drinks: "🍹 Drinks"
+          grill: "🔥 Grill",
+          tatli: "🍰 Desserts",
+          "hamur-isi": "🥟 Pastries",
+          icecek: "🍹 Drinks",
+          salata: "🥗 Salads"
         }
       },
       de: {
-        badge: "✨ Spezielle Auswahl",
-        title: "Fatih Moschee Menü",
-        subtitle: "Entdecken Sie frisch zubereitete Köstlichkeiten.",
-        searchPlaceholder: "Gerichte oder Getränke suchen...",
+        badge: "🕌 Fatih Camii & Talebe Yurdu Würzburg",
+        title: "Gemeindefest 2026",
+        subtitle: "Begegnung • Kultur • Genuss — Entdecken Sie traditionelle Spezialitäten und Gastfreundschaft.",
+        searchPlaceholder: "Menü durchsuchen...",
         closeBtn: "Schließen",
-        emptyMsg: "Keine passenden Gerichte gefunden.",
+        emptyMsg: "Keine passenden Speisen gefunden.",
+        tour: {
+          title: "Moschee Führungen",
+          sub: "mit einer Einführung zum Islam",
+          tag: "Fragen stellen • Geschichte entdecken • Einblicke gewinnen"
+        },
         categories: {
           all: "Alle",
-          breakfast: "🍳 Frühstück",
-          lunch: "🥗 Mittagessen",
-          dinner: "🥩 Abendessen",
-          dessert: "🍰 Desserts",
-          drinks: "🍹 Getränke"
+          grill: "🔥 Grill",
+          tatli: "🍰 Desserts",
+          "hamur-isi": "🥟 Teigspeisen",
+          icecek: "🍹 Getränke",
+          salata: "🥗 Salate"
         }
       }
     };
@@ -195,6 +233,15 @@
       menuSearch.placeholder = texts.searchPlaceholder;
       modalCloseAction.textContent = texts.closeBtn;
 
+      const tourTitle = document.getElementById('tourTitle');
+      const tourSub = document.getElementById('tourSub');
+      const tourTag = document.getElementById('tourTag');
+      if (tourTitle && texts.tour) {
+        tourTitle.textContent = texts.tour.title;
+        tourSub.textContent = texts.tour.sub;
+        tourTag.textContent = texts.tour.tag;
+      }
+
       document.querySelectorAll('.tab-label').forEach(el => {
         const key = el.getAttribute('data-key');
         if (texts.categories[key]) {
@@ -206,7 +253,7 @@
     // Update Category Counts
     function updateCounts() {
       document.getElementById('count-all').textContent = menuItems.length;
-      ['breakfast', 'lunch', 'dinner', 'dessert', 'drinks'].forEach(cat => {
+      ['grill', 'tatli', 'hamur-isi', 'icecek', 'salata'].forEach(cat => {
         const el = document.getElementById(`count-${cat}`);
         if (el) el.textContent = menuItems.filter(i => i.category === cat).length;
       });
@@ -250,11 +297,13 @@
               <p class="food-desc">${desc}</p>
               <div class="food-meta-row">
                 <span class="food-price">${item.price}</span>
+                ${item.isVegan ? `<span class="vegan-tag" title="Vegan">🌱 Vegan</span>` : ''}
                 ${badge ? `<span class="food-badge ${item.badgeClass}">${badge}</span>` : ''}
               </div>
             </div>
             <div class="food-thumb-wrap">
               <img src="${item.img}" alt="${name}" class="food-thumb" loading="lazy">
+              ${item.isVegan ? `<span class="thumb-vegan-badge" title="Vegan" aria-label="Vegan">🌱</span>` : ''}
             </div>
           </article>
         `;
@@ -280,6 +329,28 @@
       modalTitle.textContent = item.name[currentLang] || item.name.tr;
       modalPrice.textContent = item.price;
       modalDesc.textContent = item.desc[currentLang] || item.desc.tr;
+      
+      const modalVeganBadge = document.getElementById('modalVeganBadge');
+      if (modalVeganBadge) {
+        if (item.isVegan) {
+          const veganText = currentLang === 'tr' ? '🌱 %100 Vegan Lezzet' : (currentLang === 'de' ? '🌱 100% Veganes Gericht' : '🌱 100% Vegan Dish');
+          modalVeganBadge.textContent = veganText;
+          modalVeganBadge.style.display = 'inline-flex';
+        } else {
+          modalVeganBadge.style.display = 'none';
+        }
+      }
+
+      const modalIngredients = document.getElementById('modalIngredients');
+      if (item.ingredients && item.ingredients[currentLang] && item.ingredients[currentLang].length > 0) {
+        const ingTitle = currentLang === 'tr' ? 'İçindekiler:' : (currentLang === 'de' ? 'Zutaten:' : 'Ingredients:');
+        const tags = item.ingredients[currentLang].map(ing => `<span class="ing-tag">${ing}</span>`).join('');
+        modalIngredients.innerHTML = `<span class="ing-title">${ingTitle}</span><div class="ing-list">${tags}</div>`;
+        modalIngredients.style.display = 'block';
+      } else {
+        modalIngredients.style.display = 'none';
+      }
+
       itemModal.classList.add('active');
       itemModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
