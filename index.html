@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Fatih Cami Menü</title>
   <meta name="description" content="Fatih Cami Kermes Menü - Lezzetli seçenekler, grill, tatlı, hamur işi, içecek ve salatalar.">
-  <link rel="stylesheet" href="./style.css?v=2.0">
+  <link rel="stylesheet" href="./style.css?v=2.1">
 </head>
 <body>
 
@@ -113,7 +113,14 @@
     <div class="bottom-sheet">
       <div class="sheet-handle"></div>
       <button class="sheet-close-btn" id="modalClose" aria-label="Kapat">&times;</button>
-      <img src="" alt="" class="sheet-img" id="modalImg">
+      <div class="sheet-img-wrap" id="modalImgWrap" title="Tam boy görmek için tıklayın">
+        <img src="" alt="" class="sheet-img-bg" id="modalImgBg" aria-hidden="true">
+        <img src="" alt="" class="sheet-img" id="modalImg">
+        <button class="sheet-img-expand-btn" id="expandImgBtn" type="button" aria-label="Büyüt">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          <span id="expandBtnLabel">Tam Resim</span>
+        </button>
+      </div>
       <div class="sheet-body">
         <div class="sheet-title-row">
           <h3 class="sheet-title" id="modalTitle"></h3>
@@ -124,6 +131,15 @@
         <div class="sheet-ingredients" id="modalIngredients" style="display: none;"></div>
         <button class="sheet-close-action-btn" id="modalCloseAction">Kapat</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Lightbox -->
+  <div class="lightbox-overlay" id="imageLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="lightbox-close-btn" id="lightboxClose" aria-label="Kapat">&times;</button>
+    <div class="lightbox-content" id="lightboxContent">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
   </div>
 
@@ -139,6 +155,7 @@
         subtitle: "Geleneksel lezzetler, samimi sohbetler ve zengin festival menümüzü keşfedin.",
         searchPlaceholder: "Menüde lezzet ara...",
         closeBtn: "Kapat",
+        expandBtn: "Tam Resim",
         emptyMsg: "Aramanıza uygun lezzet bulunamadı.",
         tour: {
           title: "Cami Tanıtım Turları",
@@ -160,6 +177,7 @@
         subtitle: "Discover authentic delicacies and community hospitality. ",
         searchPlaceholder: "Search festival menu...",
         closeBtn: "Close",
+        expandBtn: "Full Photo",
         emptyMsg: "No dishes found matching your search.",
         tour: {
           title: "Mosque Guided Tours",
@@ -181,6 +199,7 @@
         subtitle: "Begegnung • Kultur • Genuss — Entdecken Sie traditionelle Spezialitäten und Gastfreundschaft. ",
         searchPlaceholder: "Menü durchsuchen...",
         closeBtn: "Schließen",
+        expandBtn: "Vollbild",
         emptyMsg: "Keine passenden Speisen gefunden.",
         tour: {
           title: "Moschee Führungen",
@@ -214,14 +233,23 @@
     const menuList = document.getElementById('menuList');
     const categoryTabs = document.querySelectorAll('.cat-tab-btn');
 
-    // Modal Elements
+    // Modal & Lightbox Elements
     const itemModal = document.getElementById('itemModal');
     const modalClose = document.getElementById('modalClose');
     const modalCloseAction = document.getElementById('modalCloseAction');
+    const modalImgWrap = document.getElementById('modalImgWrap');
+    const modalImgBg = document.getElementById('modalImgBg');
     const modalImg = document.getElementById('modalImg');
+    const expandImgBtn = document.getElementById('expandImgBtn');
+    const expandBtnLabel = document.getElementById('expandBtnLabel');
     const modalTitle = document.getElementById('modalTitle');
     const modalPrice = document.getElementById('modalPrice');
     const modalDesc = document.getElementById('modalDesc');
+
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
 
     // Update Static UI Text
     function updateUIText() {
@@ -232,6 +260,9 @@
       heroDesc.textContent = texts.subtitle;
       menuSearch.placeholder = texts.searchPlaceholder;
       modalCloseAction.textContent = texts.closeBtn;
+      if (expandBtnLabel && texts.expandBtn) {
+        expandBtnLabel.textContent = texts.expandBtn;
+      }
 
       const tourTitle = document.getElementById('tourTitle');
       const tourSub = document.getElementById('tourSub');
@@ -326,6 +357,9 @@
       activeModalItem = item;
       modalImg.src = item.img;
       modalImg.alt = item.name[currentLang] || item.name.tr;
+      if (modalImgBg) {
+        modalImgBg.src = item.img;
+      }
       modalTitle.textContent = item.name[currentLang] || item.name.tr;
       modalPrice.textContent = item.price;
       modalDesc.textContent = item.desc[currentLang] || item.desc.tr;
@@ -366,6 +400,46 @@
     modalCloseAction.addEventListener('click', closeModal);
     itemModal.addEventListener('click', (e) => {
       if (e.target === itemModal) closeModal();
+    });
+
+    // Fullscreen Lightbox Control
+    function openLightbox() {
+      if (!activeModalItem) return;
+      const title = activeModalItem.name[currentLang] || activeModalItem.name.tr;
+      lightboxImg.src = activeModalItem.img;
+      lightboxImg.alt = title;
+      lightboxCaption.textContent = `${title} • ${activeModalItem.price}`;
+      imageLightbox.classList.add('active');
+      imageLightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLightbox() {
+      imageLightbox.classList.remove('active');
+      imageLightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    if (modalImgWrap) {
+      modalImgWrap.addEventListener('click', openLightbox);
+    }
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+    if (imageLightbox) {
+      imageLightbox.addEventListener('click', (e) => {
+        if (e.target === imageLightbox || e.target === lightboxClose) {
+          closeLightbox();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (imageLightbox && imageLightbox.classList.contains('active')) {
+          closeLightbox();
+        } else if (itemModal && itemModal.classList.contains('active')) {
+          closeModal();
+        }
+      }
     });
 
     // Language Switcher Event
