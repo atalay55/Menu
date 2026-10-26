@@ -76,7 +76,7 @@
       <div class="category-scroll" id="categoryScroll">
         <button class="cat-tab-btn active" data-category="all">
           <span class="tab-label" data-key="all">Tümü</span>
-          <span class="cat-count" id="count-all">32</span>
+          <span class="cat-count" id="count-all">37</span>
         </button>
         <button class="cat-tab-btn" data-category="grill">
           <span class="tab-label" data-key="grill">🔥 Grill</span>
@@ -84,7 +84,7 @@
         </button>
         <button class="cat-tab-btn" data-category="tatli">
           <span class="tab-label" data-key="tatli">🍰 Tatlı</span>
-          <span class="cat-count" id="count-tatli">5</span>
+          <span class="cat-count" id="count-tatli">9</span>
         </button>
         <button class="cat-tab-btn" data-category="hamur-isi">
           <span class="tab-label" data-key="hamur-isi">🥟 Hamur İşi</span>
@@ -96,7 +96,7 @@
         </button>
         <button class="cat-tab-btn" data-category="salata">
           <span class="tab-label" data-key="salata">🥗 Salata</span>
-          <span class="cat-count" id="count-salata">8</span>
+          <span class="cat-count" id="count-salata">9</span>
         </button>
       </div>
     </nav>
@@ -333,7 +333,7 @@
               </div>
             </div>
             <div class="food-thumb-wrap">
-              <img src="${item.img}" alt="${name}" class="food-thumb" loading="lazy">
+              <img src="${item.img}" alt="${name}" class="food-thumb" loading="lazy" onerror="this.onerror=null; this.src='./images/fatih-camii-bina.jpg';">
               ${item.isVegan ? `<span class="thumb-vegan-badge" title="Vegan" aria-label="Vegan">🌱</span>` : ''}
             </div>
           </article>
