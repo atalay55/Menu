@@ -12,7 +12,7 @@
   <!-- Sticky Top App Header -->
   <header class="app-header">
     <div class="header-inner">
-      <div class="brand-wrap">
+      <div class="brand-wrap" id="adminSecretTrigger" title="Fatih Camii Würzburg" style="cursor: pointer;">
         <div class="brand-logo-icon">🕌</div>
         <div>
           <h1 class="brand-name">Fatih Camii Würzburg</h1>
@@ -141,6 +141,87 @@
       <img src="" alt="" class="lightbox-img" id="lightboxImg">
       <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
+  <!-- Bizi Nereden Duydunuz? Anket Kartı -->
+  <aside class="survey-card" id="surveyCard" aria-label="Anket" role="dialog">
+    <div class="survey-header">
+      <span class="survey-badge" id="surveyBadge">🕌 Mini Anket</span>
+      <button class="survey-close-btn" id="surveyCloseBtn" aria-label="Kapat">&times;</button>
+    </div>
+    <div id="surveyContent">
+      <h3 class="survey-title" id="surveyTitle">Kermesimize hoş geldiniz! Bizi nereden duydunuz?</h3>
+      <div class="survey-options" id="surveyOptions">
+        <!-- Dil seçimine göre dinamik butonlar yüklenecek -->
+      </div>
+    </div>
+    <div class="survey-thanks" id="surveyThanks">
+      <div class="survey-thanks-icon">✨</div>
+      <div class="survey-thanks-title" id="surveyThanksTitle">Teşekkür Ederiz!</div>
+      <div class="survey-thanks-sub" id="surveyThanksSub">Cevabınız kaydedildi. Afiyet olsun!</div>
+    </div>
+  </aside>
+
+  <!-- Gizli Yönetici & İstatistik Paneli -->
+  <div class="admin-modal-overlay" id="adminModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <div class="admin-modal-title-wrap">
+          <span style="font-size: 22px;">📊</span>
+          <div>
+            <div class="admin-modal-title">Kermes Yönetici Paneli</div>
+            <div class="admin-modal-sub">Canlı QR Sayaç & Anket Analizi</div>
+          </div>
+        </div>
+        <button class="admin-close-btn" id="adminCloseBtn" aria-label="Kapat">&times;</button>
+      </div>
+      
+      <div class="admin-modal-body">
+        <!-- PIN Giriş Ekranı -->
+        <div class="admin-pin-screen" id="adminPinScreen">
+          <div class="admin-lock-icon">🔐</div>
+          <h3 class="admin-pin-title">Yönetici Girişi</h3>
+          <p class="admin-pin-desc">İstatistikleri görmek için 4 haneli PIN girin</p>
+          <input type="password" class="admin-pin-input" id="adminPinInput" maxlength="4" placeholder="••••" inputmode="numeric">
+          <div class="admin-pin-error" id="adminPinError">Hatalı PIN kodu! Tekrar deneyin.</div>
+          <div>
+            <button class="admin-login-btn" id="adminLoginBtn">Giriş Yap</button>
+          </div>
+        </div>
+
+        <!-- İstatistik Dashboard Ekranı -->
+        <div class="admin-dashboard-screen" id="adminDashboardScreen">
+          <div class="admin-section-header">
+            <span class="admin-section-title">Canlı Veriler</span>
+            <button class="admin-refresh-btn" id="adminRefreshBtn">🔄 Yenile</button>
+          </div>
+
+          <div class="admin-stats-grid">
+            <div class="admin-stat-card primary">
+              <div class="admin-stat-label">Toplam QR Okuma</div>
+              <div class="admin-stat-value" id="statTotalScans">-</div>
+            </div>
+            <div class="admin-stat-card">
+              <div class="admin-stat-label">Anket Katılımı</div>
+              <div class="admin-stat-value" id="statTotalSurvey">-</div>
+            </div>
+          </div>
+
+          <div class="admin-section-header">
+            <span class="admin-section-title">Nereden Duydular? (Dağılım)</span>
+          </div>
+
+          <div class="admin-breakdown-list" id="statBreakdownList">
+            <div style="text-align: center; color: #94a3b8; padding: 12px; font-size: 13px;">Yükleniyor...</div>
+          </div>
+
+          <div class="admin-actions">
+            <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank" rel="noopener" class="admin-sheets-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h10v2H7zm0 4h10v2H7zm0 4h7v2H7z"/></svg>
+              Google E-Tabloları Aç
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Menu Data File (Easily edit items, prices, and photos here) -->
@@ -161,6 +242,19 @@
           title: "Cami Tanıtım Turları",
           sub: "İslamiyet ve Cami Mimarisi Rehberli Tanıtımı  (Cumartesi-Pazar)",
           tag: "Sorular sorun • Tarihi keşfedin • Bilgi edinin"
+        },
+        survey: {
+          badge: "🕌 Mini Anket",
+          title: "Kermesimize hoş geldiniz! Bizi nereden duydunuz?",
+          thanksTitle: "Teşekkür Ederiz!",
+          thanksSub: "Cevabınız kaydedildi. Afiyet olsun!",
+          options: [
+            { icon: "📱", label: "Sosyal Medya (Instagram / WhatsApp)" },
+            { icon: "🕌", label: "Cami / Cemaat Duyurusu" },
+            { icon: "👥", label: "Arkadaş / Aile Tavsiyesi" },
+            { icon: "📜", label: "Afiş / El İlanı" },
+            { icon: "🌟", label: "İlk Defa Denk Geldim / Diğer" }
+          ]
         },
         categories: {
           all: "Tümü",
@@ -184,6 +278,19 @@
           sub: "with an Introduction to Islam (Saturday-Sunday)",
           tag: "Ask questions • Discover history • Gain insights"
         },
+        survey: {
+          badge: "🕌 Quick Survey",
+          title: "Welcome! How did you hear about our festival?",
+          thanksTitle: "Thank You!",
+          thanksSub: "Your answer has been saved. Enjoy your meal!",
+          options: [
+            { icon: "📱", label: "Social Media (Instagram / WhatsApp)" },
+            { icon: "🕌", label: "Mosque / Community Announcement" },
+            { icon: "👥", label: "Friend / Family Recommendation" },
+            { icon: "📜", label: "Poster / Flyer" },
+            { icon: "🌟", label: "First Time / Other" }
+          ]
+        },
         categories: {
           all: "All",
           grill: "🔥 Grill",
@@ -205,6 +312,19 @@
           title: "Moschee Führungen",
           sub: "mit einer Einführung zum Islam (Samstag-Sonntag)",
           tag: "Fragen stellen • Geschichte entdecken • Einblicke gewinnen"
+        },
+        survey: {
+          badge: "🕌 Kurzumfrage",
+          title: "Herzlich willkommen! Wie haben Sie von uns erfahren?",
+          thanksTitle: "Vielen Dank!",
+          thanksSub: "Ihre Antwort wurde gespeichert. Guten Appetit!",
+          options: [
+            { icon: "📱", label: "Soziale Medien (Instagram / WhatsApp)" },
+            { icon: "🕌", label: "Moschee / Gemeinde-Ankündigung" },
+            { icon: "👥", label: "Freunde / Familie Empfehlung" },
+            { icon: "📜", label: "Plakat / Flyer" },
+            { icon: "🌟", label: "Erstmalig / Sonstiges" }
+          ]
         },
         categories: {
           all: "Alle",
@@ -279,6 +399,10 @@
           el.textContent = texts.categories[key];
         }
       });
+
+      if (typeof renderSurveyOptions === 'function') {
+        renderSurveyOptions();
+      }
     }
 
     // Update Category Counts
@@ -491,11 +615,245 @@
       renderMenu();
     });
 
+    // ========================================================
+    // ANALYTICS & QR SAYAÇ & ANKET SİSTEMİ
+    // ========================================================
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzgNIlMHNC1-aAk7SPkFC6xrHHygt1PdlZ0wo0TzH95D48tITfkZnaTwMvThtZrFHGQ/exec';
+
+    function sendToSheet(payload) {
+      try {
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(err => console.log('Analytics error:', err));
+      } catch (e) {
+        console.log('Analytics exception:', e);
+      }
+    }
+
+    // 1. QR Okutma Takibi (Aynı oturumda spam sayımı engeller)
+    function trackQRScan() {
+      if (!sessionStorage.getItem('fatih_qr_scanned')) {
+        sessionStorage.setItem('fatih_qr_scanned', 'true');
+        sendToSheet({
+          type: 'QR Okutuldu',
+          answer: '-',
+          lang: currentLang
+        });
+      }
+    }
+
+    // 2. Anket Sistemi
+    const surveyCard = document.getElementById('surveyCard');
+    const surveyCloseBtn = document.getElementById('surveyCloseBtn');
+    const surveyBadge = document.getElementById('surveyBadge');
+    const surveyTitle = document.getElementById('surveyTitle');
+    const surveyOptions = document.getElementById('surveyOptions');
+    const surveyThanks = document.getElementById('surveyThanks');
+    const surveyContent = document.getElementById('surveyContent');
+    const surveyThanksTitle = document.getElementById('surveyThanksTitle');
+    const surveyThanksSub = document.getElementById('surveyThanksSub');
+
+    function renderSurveyOptions() {
+      if (!surveyOptions) return;
+      const texts = i18n[currentLang] || i18n.tr;
+      if (!texts.survey) return;
+
+      if (surveyBadge) surveyBadge.textContent = texts.survey.badge;
+      if (surveyTitle) surveyTitle.textContent = texts.survey.title;
+      if (surveyThanksTitle) surveyThanksTitle.textContent = texts.survey.thanksTitle;
+      if (surveyThanksSub) surveyThanksSub.textContent = texts.survey.thanksSub;
+
+      surveyOptions.innerHTML = '';
+      texts.survey.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'survey-opt-btn';
+        btn.innerHTML = `<span class="survey-opt-icon">${opt.icon}</span> <span>${opt.label}</span>`;
+        btn.addEventListener('click', () => handleSurveySelect(opt.label, btn));
+        surveyOptions.appendChild(btn);
+      });
+    }
+
+    function handleSurveySelect(answerText, btn) {
+      btn.classList.add('selected');
+      sendToSheet({
+        type: 'Anket Cevabı',
+        answer: answerText,
+        lang: currentLang
+      });
+
+      localStorage.setItem('fatih_survey_answered', 'true');
+
+      setTimeout(() => {
+        if (surveyContent) surveyContent.style.display = 'none';
+        if (surveyThanks) surveyThanks.classList.add('active');
+        setTimeout(() => {
+          if (surveyCard) surveyCard.classList.remove('active');
+        }, 1600);
+      }, 350);
+    }
+
+    function initSurvey() {
+      if (localStorage.getItem('fatih_survey_answered') === 'true') return;
+      if (sessionStorage.getItem('fatih_survey_dismissed') === 'true') return;
+
+      renderSurveyOptions();
+
+      // Ziyaretçi menüyü açtıktan 2.5 saniye sonra nazikçe göster
+      setTimeout(() => {
+        if (localStorage.getItem('fatih_survey_answered') !== 'true' &&
+            sessionStorage.getItem('fatih_survey_dismissed') !== 'true') {
+          surveyCard.classList.add('active');
+        }
+      }, 2500);
+
+      if (surveyCloseBtn) {
+        surveyCloseBtn.addEventListener('click', () => {
+          surveyCard.classList.remove('active');
+          sessionStorage.setItem('fatih_survey_dismissed', 'true');
+        });
+      }
+    }
+
+    // 3. Gizli Yönetici & İstatistik Paneli
+    const adminSecretTrigger = document.getElementById('adminSecretTrigger');
+    const adminModal = document.getElementById('adminModal');
+    const adminCloseBtn = document.getElementById('adminCloseBtn');
+    const adminPinScreen = document.getElementById('adminPinScreen');
+    const adminPinInput = document.getElementById('adminPinInput');
+    const adminPinError = document.getElementById('adminPinError');
+    const adminLoginBtn = document.getElementById('adminLoginBtn');
+    const adminDashboardScreen = document.getElementById('adminDashboardScreen');
+    const adminRefreshBtn = document.getElementById('adminRefreshBtn');
+    const statTotalScans = document.getElementById('statTotalScans');
+    const statTotalSurvey = document.getElementById('statTotalSurvey');
+    const statBreakdownList = document.getElementById('statBreakdownList');
+
+    let brandTapCount = 0;
+    let brandTapTimer = null;
+    const ADMIN_PIN = '1453'; // 4 haneli kolay yönetici PIN'i
+
+    function initAdminPanel() {
+      if (adminSecretTrigger) {
+        adminSecretTrigger.addEventListener('click', () => {
+          brandTapCount++;
+          clearTimeout(brandTapTimer);
+          brandTapTimer = setTimeout(() => {
+            brandTapCount = 0;
+          }, 2500);
+
+          // 5 kez tıklandığında paneli aç
+          if (brandTapCount >= 5) {
+            brandTapCount = 0;
+            openAdminModal();
+          }
+        });
+      }
+
+      if (adminCloseBtn) adminCloseBtn.addEventListener('click', closeAdminModal);
+      if (adminModal) {
+        adminModal.addEventListener('click', (e) => {
+          if (e.target === adminModal) closeAdminModal();
+        });
+      }
+
+      if (adminLoginBtn) adminLoginBtn.addEventListener('click', verifyPin);
+      if (adminPinInput) {
+        adminPinInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') verifyPin();
+        });
+      }
+      if (adminRefreshBtn) adminRefreshBtn.addEventListener('click', loadAdminStats);
+    }
+
+    function openAdminModal() {
+      adminModal.classList.add('active');
+      adminPinInput.value = '';
+      adminPinError.style.display = 'none';
+      adminPinInput.focus();
+    }
+
+    function closeAdminModal() {
+      adminModal.classList.remove('active');
+    }
+
+    function verifyPin() {
+      if (adminPinInput.value.trim() === ADMIN_PIN) {
+        adminPinError.style.display = 'none';
+        adminPinScreen.style.display = 'none';
+        adminDashboardScreen.classList.add('active');
+        loadAdminStats();
+      } else {
+        adminPinError.style.display = 'block';
+        adminPinInput.value = '';
+        adminPinInput.focus();
+      }
+    }
+
+    async function loadAdminStats() {
+      statTotalScans.textContent = '...';
+      statTotalSurvey.textContent = '...';
+      statBreakdownList.innerHTML = '<div style="text-align: center; color: #94a3b8; padding: 12px; font-size: 13px;">Veriler yükleniyor...</div>';
+
+      try {
+        const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=stats&t=${Date.now()}`);
+        const data = await response.json();
+
+        statTotalScans.textContent = data.totalScans || 0;
+
+        let totalSurveyCount = 0;
+        const breakdown = data.surveyResults || {};
+        for (const k in breakdown) {
+          totalSurveyCount += breakdown[k];
+        }
+        statTotalSurvey.textContent = totalSurveyCount;
+
+        renderBreakdown(breakdown, totalSurveyCount);
+      } catch (err) {
+        statBreakdownList.innerHTML = `<div style="text-align: center; color: #e11d48; padding: 12px; font-size: 13px;">Veri alınamadı: ${err.message}</div>`;
+      }
+    }
+
+    function renderBreakdown(breakdown, total) {
+      const keys = Object.keys(breakdown);
+      if (keys.length === 0) {
+        statBreakdownList.innerHTML = '<div style="text-align: center; color: #94a3b8; padding: 12px; font-size: 13px;">Henüz anket cevabı bulunmuyor.</div>';
+        return;
+      }
+
+      statBreakdownList.innerHTML = '';
+      keys.sort((a, b) => breakdown[b] - breakdown[a]);
+
+      keys.forEach(key => {
+        const count = breakdown[key];
+        const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+
+        const item = document.createElement('div');
+        item.className = 'admin-breakdown-item';
+        item.innerHTML = `
+          <div class="admin-breakdown-row">
+            <span>${key}</span>
+            <span><strong>${count}</strong> <span style="color:#64748b; font-size:12px;">(%${pct})</span></span>
+          </div>
+          <div class="admin-breakdown-bar-bg">
+            <div class="admin-breakdown-bar-fill" style="width: ${pct}%"></div>
+          </div>
+        `;
+        statBreakdownList.appendChild(item);
+      });
+    }
+
     // Initialize App
     setInitialLanguage();
     updateUIText();
     updateCounts();
     renderMenu();
+    trackQRScan();
+    initSurvey();
+    initAdminPanel();
   </script>
 </body>
 </html>
