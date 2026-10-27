@@ -258,7 +258,7 @@ const menuItems = [
   {
     id: 7,
     category: "tatli",
-    price: "1.00 €",
+    price: "1.50 €",
     img: "./images/baklava.jpg",
     badgeClass: "chef",
     name: {
@@ -272,9 +272,9 @@ const menuItems = [
       de: "Hauchdünner traditioneller Filoteig mit feinsten Antep-Pistazien und aromatischem Sirup (1 Stück).",
     },
     badge: {
-      tr: "1 Adet / 1.00 €",
-      en: "1 Pc / 1.00 €",
-      de: "1 Stück / 1.00 €",
+      tr: "1 Adet / 1.50 €",
+      en: "1 Pc / 1.50 €",
+      de: "1 Stück / 1.50 €",
     },
     ingredients: {
       tr: [
@@ -329,6 +329,7 @@ const menuItems = [
       ],
     },
   },
+  /*
   {
     id: 9,
     category: "tatli",
@@ -374,6 +375,8 @@ const menuItems = [
       ],
     },
   },
+  */
+  /*
   {
     id: 10,
     category: "tatli",
@@ -409,6 +412,8 @@ const menuItems = [
       ],
     },
   },
+  */
+  /*
   {
     id: 11,
     category: "tatli",
@@ -440,10 +445,11 @@ const menuItems = [
       ],
     },
   },
+  */
   {
     id: 12,
     category: "hamur-isi",
-    price: "6.00 €",
+    price: "3.00 €",
     img: "./images/su-boregi.jpg",
     badgeClass: "chef",
     name: {
@@ -482,6 +488,7 @@ const menuItems = [
       ],
     },
   },
+  /*
   {
     id: 13,
     category: "hamur-isi",
@@ -519,6 +526,8 @@ const menuItems = [
       de: ["🥩 Rinderhack", "🧅 Zwiebeln", "🌾 Knusperteig", "✨ Sesam"],
     },
   },
+  */
+  /*
   {
     id: 14,
     category: "hamur-isi",
@@ -561,6 +570,8 @@ const menuItems = [
       ],
     },
   },
+  */
+  /*
   {
     id: 15,
     category: "hamur-isi",
@@ -588,6 +599,7 @@ const menuItems = [
       de: ["🧀 Käse / Spinat / Kartoffel", "🌾 Teigfladen", "🧈 Bauernbutter"],
     },
   },
+  */
   {
     id: 16,
     isVegan: true,
@@ -728,6 +740,7 @@ const menuItems = [
       de: ["💧 Reines Quellwasser", "🧊 Gekühlt"],
     },
   },
+  /*
   {
     id: 21,
     category: "icecek",
@@ -755,6 +768,7 @@ const menuItems = [
       de: ["🥛 Naturjoghurt", "🧂 Prise Salz", "🌿 Minze"],
     },
   },
+  */
   {
     id: 22,
     isVegan: true,
@@ -815,6 +829,7 @@ const menuItems = [
       de: ["☕ Frisch gemahlen", "🍬 Türkischer Lokum", "💧 Glas Wasser"],
     },
   },
+  /*
   {
     id: 24,
     isVegan: true,
@@ -843,11 +858,12 @@ const menuItems = [
       de: ["☕ Äthiopischer Arabica", "💧 Handfilter"],
     },
   },
+  */
   {
     id: 25,
     isVegan: true,
     category: "salata",
-    price: "1.50 €",
+    price: "2.00 €",
     img: "./images/kisir.jpg",
     badgeClass: "vegan",
     name: {
@@ -861,9 +877,9 @@ const menuItems = [
       de: "Feiner Bulgursalat mit frischer Minze, Petersilie, Frühlingszwiebeln, Granatapfelsirup und Olivenöl (1 Kelle).",
     },
     badge: {
-      tr: "1 Kepçe / 1.50 €",
-      en: "1 Scoop / 1.50 €",
-      de: "1 Kelle / 1.50 €",
+      tr: "1 Kepçe / 2.00 €",
+      en: "1 Scoop / 2.00 €",
+      de: "1 Kelle / 2.00 €",
     },
     ingredients: {
       tr: [
@@ -890,7 +906,7 @@ const menuItems = [
     id: 26,
     isVegan: true,
     category: "salata",
-    price: "3.50 €",
+    price: "2.00 €",
     img: "./images/cig-kofte.jpg",
     badgeClass: "spicy",
     name: {
@@ -904,9 +920,9 @@ const menuItems = [
       de: "5 klassisch gewürzte Bulgurbällchen mit Urfa-Isot, serviert mit knackigem Salat und frischer Zitrone.",
     },
     badge: {
-      tr: "5 Adet / 3.50 €",
-      en: "5 Pcs / 3.50 €",
-      de: "5 Stück / 3.50 €",
+      tr: "5 Adet / 2.00 €",
+      en: "5 Pcs / 2.00 €",
+      de: "5 Stück / 2.00 €",
     },
     ingredients: {
       tr: [
@@ -932,7 +948,7 @@ const menuItems = [
   {
     id: 27,
     category: "salata",
-    price: "1.50 €",
+    price: "2.00 €",
     img: "./images/makarna-salatasi.jpg",
     badgeClass: "chef",
     name: {
@@ -946,9 +962,9 @@ const menuItems = [
       de: "Zarte Nudeln mit feinem Gemüse, Mais, Erbsen, Gewürzgurken und cremiger Sauce.",
     },
     badge: {
-      tr: "Porsiyon / 1.50 €",
-      en: "Portion / 1.50 €",
-      de: "Portion / 1.50 €",
+      tr: "Porsiyon / 2.00 €",
+      en: "Portion / 2.00 €",
+      de: "Portion / 2.00 €",
     },
     ingredients: {
       tr: [
@@ -975,7 +991,7 @@ const menuItems = [
     id: 28,
     isVegan: true,
     category: "salata",
-    price: "5.50 €",
+    price: "2.00 €",
     img: "./images/sehriye-salatasi.jpg",
     badgeClass: "vegan",
     name: {
@@ -1017,7 +1033,7 @@ const menuItems = [
   {
     id: 29,
     category: "salata",
-    price: "6.50 €",
+    price: "2.00 €",
     img: "./images/patlican-salatasi-yogurtlu.jpg",
     badgeClass: "chef",
     name: {
@@ -1060,7 +1076,7 @@ const menuItems = [
     id: 30,
     isVegan: true,
     category: "salata",
-    price: "6.00 €",
+    price: "2.00 €",
     img: "./images/patlican-salatasi.jpg",
     badgeClass: "vegan",
     name: {
@@ -1103,7 +1119,7 @@ const menuItems = [
     id: 31,
     isVegan: true,
     category: "salata",
-    price: "5.50 €",
+    price: "2.00 €",
     img: "./images/domates-ezmesi.jpg",
     badgeClass: "spicy",
     name: {
@@ -1146,7 +1162,7 @@ const menuItems = [
     id: 32,
     isVegan: true,
     category: "salata",
-    price: "3.50 €",
+    price: "2.00 €",
     img: "./images/yaprak-sarma.jpg",
     badgeClass: "vegan",
     name: {
@@ -1189,7 +1205,7 @@ const menuItems = [
     id: 33,
     isVegan: true,
     category: "salata",
-    price: "1.50 €",
+    price: "2.50 €",
     img: "./images/taze-pancar-salatasi.jpg",
     badgeClass: "vegan",
     name: {
@@ -1258,7 +1274,7 @@ const menuItems = [
   {
     id: 35,
     category: "tatli",
-    price: "3.50 €",
+    price: "4.00 €",
     img: "./images/waffel.jpg",
     badgeClass: "chef",
     name: {
@@ -1272,9 +1288,9 @@ const menuItems = [
       de: "Ofenfrische goldbraune Waffel, serviert mit feinem Puderzucker, Schokosauce oder Früchten.",
     },
     badge: {
-      tr: "Taze / 3.50 €",
-      en: "Fresh / 3.50 €",
-      de: "Ofenfrisch / 3.50 €",
+      tr: "Taze / 4.00 €",
+      en: "Fresh / 4.00 €",
+      de: "Ofenfrisch / 4.00 €",
     },
     ingredients: {
       tr: ["🧇 Taze Waffle Hamuru", "🍫 Çikolata Sosu", "✨ Pudra Şekeri"],
@@ -1327,7 +1343,7 @@ const menuItems = [
   {
     id: 37,
     category: "tatli",
-    price: "1.00 €",
+    price: "1.50 €",
     img: "./images/elmali-kurabiye.jpg",
     badgeClass: "chef",
     name: {
@@ -1341,9 +1357,9 @@ const menuItems = [
       de: "Zarter Mürbeteig gefüllt mit aromatischen Zimtäpfeln und Walnüssen, mit feinem Puderzucker bestäubt (1 Stück).",
     },
     badge: {
-      tr: "1 Adet / 1.00 €",
-      en: "1 Pc / 1.00 €",
-      de: "1 Stück / 1.00 €",
+      tr: "1 Adet / 1.50 €",
+      en: "1 Pc / 1.50 €",
+      de: "1 Stück / 1.50 €",
     },
     ingredients: {
       tr: [
