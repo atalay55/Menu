@@ -106,6 +106,13 @@
       <!-- Items dynamically populated -->
     </div>
 
+    <!-- App Footer / Impressum & Datenschutz (Germany DSGVO/TMG compliance) -->
+    <footer class="app-footer">
+      <p class="footer-copy">© 2026 Fatih Camii Würzburg Integration, Kultur & Bildung e.V.</p>
+      <div class="footer-links">
+        <button type="button" class="footer-legal-btn" id="openLegalModal">⚖️ Impressum & Datenschutz</button>
+      </div>
+    </footer>
   </main>
 
   <!-- Bottom Sheet / Modal (Showcase Preview) -->
@@ -130,6 +137,31 @@
         <p class="sheet-desc" id="modalDesc"></p>
         <div class="sheet-ingredients" id="modalIngredients" style="display: none;"></div>
         <button class="sheet-close-action-btn" id="modalCloseAction">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impressum & Datenschutz Modal (DSGVO / § 5 TMG) -->
+  <div class="modal-overlay" id="legalModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="bottom-sheet legal-sheet">
+      <div class="sheet-handle"></div>
+      <button class="sheet-close-btn" id="legalModalClose" aria-label="Schließen / Kapat">&times;</button>
+      <div class="sheet-body legal-sheet-body">
+        <h3 class="legal-title">⚖️ Impressum & Datenschutz</h3>
+        <div class="legal-content">
+          <h4>1. Impressum (§ 5 TMG / DDG)</h4>
+          <p><strong>Angaben gemäß § 5 TMG / DDG:</strong><br>
+          Fatih Camii Würzburg Integration, Kultur & Bildung e.V.<br>
+          Würzburg, Deutschland<br>
+          E-Mail: info@fatih-camii-wuerzburg.de</p>
+
+          <h4>2. Datenschutzhinweise (DSGVO)</h4>
+          <p><strong>Verantwortlicher:</strong> Fatih Camii Würzburg e.V.<br>
+          <strong>Keine Tracking-Cookies:</strong> Diese Seite setzt keine Tracking- oder Marketing-Cookies ein. Es werden keine Werbeprofile erstellt.</p>
+          <p><strong>Lokale Speicherung (LocalStorage):</strong> Wir speichern lediglich die von Ihnen gewählte Sprache (TR/EN/DE) und den Teilnahme-Status der Mini-Umfrage lokal auf Ihrem Gerät (rein funktional notwendig gem. § 25 Abs. 2 TTDSG).</p>
+          <p><strong>Anonyme Zählung (Google Apps Script):</strong> Beim Aufruf via QR-Code und bei freiwilliger Teilnahme an der Kurzumfrage wird ein anonymer Zähler an Google Apps Script übermittelt, um den Besucherandrang beim Gemeindefest zu koordinieren. Es werden keine Namen oder personenbezogenen Daten erfasst.</p>
+        </div>
+        <button class="sheet-close-action-btn" id="legalModalCloseAction">Schließen / Kapat</button>
       </div>
     </div>
   </div>
@@ -407,12 +439,17 @@
       }
     }
 
-    // Update Category Counts
+    // Update Category Counts (O(n) Single Pass)
     function updateCounts() {
-      document.getElementById('count-all').textContent = menuItems.length;
+      const counts = { all: menuItems.length, grill: 0, tatli: 0, 'hamur-isi': 0, icecek: 0, salata: 0 };
+      for (let i = 0; i < menuItems.length; i++) {
+        const cat = menuItems[i].category;
+        if (counts[cat] !== undefined) counts[cat]++;
+      }
+      document.getElementById('count-all').textContent = counts.all;
       ['grill', 'tatli', 'hamur-isi', 'icecek', 'salata'].forEach(cat => {
         const el = document.getElementById(`count-${cat}`);
-        if (el) el.textContent = menuItems.filter(i => i.category === cat).length;
+        if (el) el.textContent = counts[cat];
       });
     }
 
@@ -466,13 +503,6 @@
         `;
       }).join('');
 
-      // Card Click Handler -> Open Bottom Sheet
-      document.querySelectorAll('.food-card').forEach(card => {
-        card.addEventListener('click', () => {
-          const id = parseInt(card.getAttribute('data-id'));
-          openModal(id);
-        });
-      });
     }
 
     // Modal Control
@@ -611,10 +641,34 @@
       });
     });
 
-    // Search Input Event
+    // Search Input Event (with 150ms Debounce for Smooth Typing)
+    let searchDebounceTimer = null;
     menuSearch.addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim();
-      renderMenu();
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        searchQuery = e.target.value.trim();
+        renderMenu();
+      }, 150);
+    });
+
+    // Event Delegation for Menu Cards (High Performance & Memory Friendly)
+    menuList.addEventListener('click', (e) => {
+      const card = e.target.closest('.food-card');
+      if (card) {
+        const id = parseInt(card.getAttribute('data-id'), 10);
+        openModal(id);
+      }
+    });
+
+    menuList.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const card = e.target.closest('.food-card');
+        if (card) {
+          e.preventDefault();
+          const id = parseInt(card.getAttribute('data-id'), 10);
+          openModal(id);
+        }
+      }
     });
 
     // ========================================================
@@ -835,16 +889,67 @@
 
         const item = document.createElement('div');
         item.className = 'admin-breakdown-item';
-        item.innerHTML = `
-          <div class="admin-breakdown-row">
-            <span>${key}</span>
-            <span><strong>${count}</strong> <span style="color:#64748b; font-size:12px;">(%${pct})</span></span>
-          </div>
-          <div class="admin-breakdown-bar-bg">
-            <div class="admin-breakdown-bar-fill" style="width: ${pct}%"></div>
-          </div>
-        `;
+
+        const row = document.createElement('div');
+        row.className = 'admin-breakdown-row';
+
+        const labelSpan = document.createElement('span');
+        labelSpan.textContent = key; // XSS-safe textContent
+
+        const countSpan = document.createElement('span');
+        const countStrong = document.createElement('strong');
+        countStrong.textContent = count;
+        const pctSpan = document.createElement('span');
+        pctSpan.style.cssText = 'color:#64748b; font-size:12px; margin-left:4px;';
+        pctSpan.textContent = `(%${pct})`;
+        countSpan.appendChild(countStrong);
+        countSpan.appendChild(pctSpan);
+
+        row.appendChild(labelSpan);
+        row.appendChild(countSpan);
+
+        const barBg = document.createElement('div');
+        barBg.className = 'admin-breakdown-bar-bg';
+        const barFill = document.createElement('div');
+        barFill.className = 'admin-breakdown-bar-fill';
+        barFill.style.width = `${pct}%`;
+        barBg.appendChild(barFill);
+
+        item.appendChild(row);
+        item.appendChild(barBg);
         statBreakdownList.appendChild(item);
+      });
+    }
+
+
+    // Legal Modal (Impressum & Datenschutz) Control
+    const legalModal = document.getElementById('legalModal');
+    const openLegalModalBtn = document.getElementById('openLegalModal');
+    const legalModalClose = document.getElementById('legalModalClose');
+    const legalModalCloseAction = document.getElementById('legalModalCloseAction');
+
+    function openLegalModal() {
+      if (legalModal) {
+        legalModal.classList.add('active');
+        legalModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLegalModal() {
+      if (legalModal) {
+        legalModal.classList.remove('active');
+        legalModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (openLegalModalBtn) openLegalModalBtn.addEventListener('click', openLegalModal);
+    if (legalModalClose) legalModalClose.addEventListener('click', closeLegalModal);
+    if (legalModalCloseAction) legalModalCloseAction.addEventListener('click', closeLegalModal);
+    if (legalModal) {
+      legalModal.addEventListener('click', (e) => {
+        if (e.target === legalModal) closeLegalModal();
       });
     }
 
