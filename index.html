@@ -76,11 +76,11 @@
       <div class="category-scroll" id="categoryScroll">
         <button class="cat-tab-btn active" data-category="all">
           <span class="tab-label" data-key="all">Tümü</span>
-          <span class="cat-count" id="count-all">37</span>
+          <span class="cat-count" id="count-all">38</span>
         </button>
         <button class="cat-tab-btn" data-category="grill">
           <span class="tab-label" data-key="grill">🔥 Grill</span>
-          <span class="cat-count" id="count-grill">6</span>
+          <span class="cat-count" id="count-grill">7</span>
         </button>
         <button class="cat-tab-btn" data-category="tatli">
           <span class="tab-label" data-key="tatli">🍰 Tatlı</span>
@@ -532,10 +532,19 @@
       }
 
       const modalIngredients = document.getElementById('modalIngredients');
+      let detailHtml = '';
       if (item.ingredients && item.ingredients[currentLang] && item.ingredients[currentLang].length > 0) {
         const ingTitle = currentLang === 'tr' ? 'İçindekiler:' : (currentLang === 'de' ? 'Zutaten:' : 'Ingredients:');
         const tags = item.ingredients[currentLang].map(ing => `<span class="ing-tag">${ing}</span>`).join('');
-        modalIngredients.innerHTML = `<span class="ing-title">${ingTitle}</span><div class="ing-list">${tags}</div>`;
+        detailHtml += `<span class="ing-title">${ingTitle}</span><div class="ing-list">${tags}</div>`;
+      }
+      if (item.allergens && item.allergens[currentLang] && item.allergens[currentLang].length > 0) {
+        const algTitle = currentLang === 'tr' ? '⚠️ Alerjenler:' : (currentLang === 'de' ? '⚠️ Allergene:' : '⚠️ Allergens:');
+        const algTags = item.allergens[currentLang].map(alg => `<span class="ing-tag">${alg}</span>`).join('');
+        detailHtml += `<span class="ing-title" style="margin-top: 12px;">${algTitle}</span><div class="ing-list">${algTags}</div>`;
+      }
+      if (detailHtml) {
+        modalIngredients.innerHTML = detailHtml;
         modalIngredients.style.display = 'block';
       } else {
         modalIngredients.style.display = 'none';
