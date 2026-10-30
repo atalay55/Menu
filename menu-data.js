@@ -381,14 +381,14 @@ const menuItems = [
     ingredients: {
       tr: ["🌭 Dana Sucuk", "🥖 Çıtır Ekmek", "🧅 Karamelize Soğan"],
       en: ["🌭 Beef Sucuk", "🥖 Crispy Bread", "🧅 Caramelized Onions"],
-      de: ["🌭 Rindswurst (Sucuk)", "🥖 Knuspriges Brot", "🧅 Karamellisierte Zwiebeln"],
+      de: [
+        "🌭 Rindswurst (Sucuk)",
+        "🥖 Knuspriges Brot",
+        "🧅 Karamellisierte Zwiebeln",
+      ],
     },
     allergens: {
-      tr: [
-        "🌾 Gluten (Ekmek)",
-        "🧴 Hardal (Sucukta)",
-        "🥬 Kereviz (Sucukta)",
-      ],
+      tr: ["🌾 Gluten (Ekmek)", "🧴 Hardal (Sucukta)", "🥬 Kereviz (Sucukta)"],
       en: [
         "🌾 Gluten (Bread)",
         "🧴 Mustard (in Sucuk)",
@@ -1046,15 +1046,9 @@ const menuItems = [
       de: ["🥕 Lila Karotte", "🌾 Fermentation", "🌶️ Scharf / Mild"],
     },
     allergens: {
-      tr: [
-        "🌾 Gluten (Geleneksel bulgur fermantasyonu)",
-      ],
-      en: [
-        "🌾 Gluten (Traditional bulgur fermentation)",
-      ],
-      de: [
-        "🌾 Gluten (Traditionelle Bulgur-Fermentation)",
-      ],
+      tr: ["🌾 Gluten (Geleneksel bulgur fermantasyonu)"],
+      en: ["🌾 Gluten (Traditional bulgur fermentation)"],
+      de: ["🌾 Gluten (Traditionelle Bulgur-Fermentation)"],
     },
   },
   {
@@ -1261,15 +1255,9 @@ const menuItems = [
       ],
     },
     allergens: {
-      tr: [
-        "🌾 Gluten (İnce buğday bulguru)",
-      ],
-      en: [
-        "🌾 Gluten (Fine wheat bulgur)",
-      ],
-      de: [
-        "🌾 Gluten (Feiner Weizenbulgur)",
-      ],
+      tr: ["🌾 Gluten (İnce buğday bulguru)"],
+      en: ["🌾 Gluten (Fine wheat bulgur)"],
+      de: ["🌾 Gluten (Feiner Weizenbulgur)"],
     },
   },
   {
@@ -1280,53 +1268,44 @@ const menuItems = [
     img: "./images/cig-kofte.jpg",
     badgeClass: "spicy",
     name: {
-      tr: "Çiğ Köfte (5 Adet)",
-      en: "Traditional Cig Kofte (5 Pcs)",
-      de: "Traditionelle Çiğ Köfte (5 Stück)",
+      tr: "Çiğ Köfte (Porsiyon)",
+      en: "Traditional Cig Kofte (Portion)",
+      de: "Traditionelle Çiğ Köfte (Portion)",
     },
     desc: {
-      tr: "Urfa usulü özel baharatlar, isot, domates salçası ve ceviz ile yoğrulmuş 5 adet taze çiğ köfte; çıtır marul ve limon ile.",
-      en: "5 kneaded fine bulgur patties with Urfa isot pepper, walnuts and spices, served with crisp lettuce and lemon.",
-      de: "5 klassisch gewürzte Bulgurbällchen mit Urfa-Isot, serviert mit knackigem Salat und frischer Zitrone.",
+      tr: "Urfa usulü özel baharatlar, isot, domates salçası ve ceviz ile yoğrulmuş taze çiğ köfte porsiyonu; çıtır marul ve limon ile.",
+      en: "Kneaded fine bulgur patties with Urfa isot pepper, walnuts and spices, served as a generous portion with crisp lettuce and lemon.",
+      de: "Klassisch gewürzte Bulgurbällchen mit Urfa-Isot, serviert als Portion mit knackigem Salat und frischer Zitrone.",
     },
     badge: {
-      tr: "5 Adet / 2.00 €",
-      en: "5 Pcs / 2.00 €",
-      de: "5 Stück / 2.00 €",
+      tr: "Porsiyon / 2.00 €",
+      en: "Portion / 2.00 €",
+      de: "Portion / 2.00 €",
     },
     ingredients: {
       tr: [
         "🌶️ Urfa İsotu & Baharat",
-        "🌾 İnce Bulgur (5 Adet)",
+        "🌾 İnce Bulgur",
         "🥬 Çıtır Marul",
         "🍋 Taze Limon",
       ],
       en: [
         "🌶️ Urfa Isot & Spices",
-        "🌾 Fine Bulgur (5 Pcs)",
+        "🌾 Fine Bulgur",
         "🥬 Romaine Lettuce",
         "🍋 Fresh Lemon",
       ],
       de: [
         "🌶️ Urfa-Isot & Gewürze",
-        "🌾 Bulgur (5 Stück)",
+        "🌾 Bulgur",
         "🥬 Salatblätter",
         "🍋 Zitrone",
       ],
     },
     allergens: {
-      tr: [
-        "🌾 Gluten (İnce buğday bulguru)",
-        "🥜 Ceviz (Sert kabuklu yemiş)",
-      ],
-      en: [
-        "🌾 Gluten (Fine wheat bulgur)",
-        "🥜 Walnuts (Tree nuts)",
-      ],
-      de: [
-        "🌾 Gluten (Feiner Weizenbulgur)",
-        "🥜 Walnüsse (Schalenfrüchte)",
-      ],
+      tr: ["🌾 Gluten (İnce buğday bulguru)", "🥜 Ceviz (Sert kabuklu yemiş)"],
+      en: ["🌾 Gluten (Fine wheat bulgur)", "🥜 Walnuts (Tree nuts)"],
+      de: ["🌾 Gluten (Feiner Weizenbulgur)", "🥜 Walnüsse (Schalenfrüchte)"],
     },
   },
   {
@@ -1434,15 +1413,9 @@ const menuItems = [
       ],
     },
     allergens: {
-      tr: [
-        "🌾 Gluten (Arpa şehriye / durum buğdayı)",
-      ],
-      en: [
-        "🌾 Gluten (Orzo durum wheat pasta)",
-      ],
-      de: [
-        "🌾 Gluten (Orzo-Hartweizennudeln)",
-      ],
+      tr: ["🌾 Gluten (Arpa şehriye / durum buğdayı)"],
+      en: ["🌾 Gluten (Orzo durum wheat pasta)"],
+      de: ["🌾 Gluten (Orzo-Hartweizennudeln)"],
     },
   },
   {
@@ -1487,60 +1460,54 @@ const menuItems = [
       ],
     },
     allergens: {
-      tr: [
-        "🥛 Süt (Süzme yoğurt)",
-      ],
-      en: [
-        "🥛 Milk (Strained yogurt)",
-      ],
-      de: [
-        "🥛 Milch (Joghurt)",
-      ],
+      tr: ["🥛 Süt (Süzme yoğurt)"],
+      en: ["🥛 Milk (Strained yogurt)"],
+      de: ["🥛 Milch (Joghurt)"],
     },
   },
-  {
-    id: 30,
-    isVegan: true,
-    category: "salata",
-    price: "2.00 €",
-    img: "./images/patlican-salatasi.jpg",
-    badgeClass: "vegan",
-    name: {
-      tr: "Zeytinyağlı Köz Patlıcan Salatası (Yoğurtsuz)",
-      en: "Roasted Eggplant Salad (Without Yogurt)",
-      de: "Gegrillter Auberginensalat (Ohne Joghurt)",
-    },
-    desc: {
-      tr: "Odun ateşinde közlenmiş patlıcan, köz kapya ve yeşil biber, sarımsak, taze maydanoz, limon ve hakiki zeytinyağı.",
-      en: "Woodfire smoked whole eggplant chopped with roasted sweet peppers, garlic, fresh parsley, and lemon-olive oil dressing.",
-      de: "Rauchig gegrillte Aubergine, gegrillte Paprika, Knoblauch, Petersilie und fruchtiges Olivenöl-Dressing.",
-    },
-    badge: {
-      tr: "Odun Ateşinde",
-      en: "Wood-Smoked",
-      de: "Raucharoma",
-    },
-    ingredients: {
-      tr: [
-        "🍆 Köz Patlıcan",
-        "🫑 Köz Kırmızı & Yeşil Biber",
-        "🌿 Taze Maydanoz",
-        "🍋 Limon & Zeytinyağı",
-      ],
-      en: [
-        "🍆 Smoked Eggplant",
-        "🫑 Roasted Sweet Peppers",
-        "🌿 Fresh Parsley",
-        "🍋 Lemon & Olive Oil",
-      ],
-      de: [
-        "🍆 Aubergine",
-        "🫑 Paprikastreifen",
-        "🌿 Petersilie",
-        "🍋 Zitrone & Olivenöl",
-      ],
-    },
-  },
+  // {
+  //   id: 30,
+  //   isVegan: true,
+  //   category: "salata",
+  //   price: "2.00 €",
+  //   img: "./images/patlican-salatasi.jpg",
+  //   badgeClass: "vegan",
+  //   name: {
+  //     tr: "Zeytinyağlı Köz Patlıcan Salatası (Yoğurtsuz)",
+  //     en: "Roasted Eggplant Salad (Without Yogurt)",
+  //     de: "Gegrillter Auberginensalat (Ohne Joghurt)",
+  //   },
+  //   desc: {
+  //     tr: "Odun ateşinde közlenmiş patlıcan, köz kapya ve yeşil biber, sarımsak, taze maydanoz, limon ve hakiki zeytinyağı.",
+  //     en: "Woodfire smoked whole eggplant chopped with roasted sweet peppers, garlic, fresh parsley, and lemon-olive oil dressing.",
+  //     de: "Rauchig gegrillte Aubergine, gegrillte Paprika, Knoblauch, Petersilie und fruchtiges Olivenöl-Dressing.",
+  //   },
+  //   badge: {
+  //     tr: "Odun Ateşinde",
+  //     en: "Wood-Smoked",
+  //     de: "Raucharoma",
+  //   },
+  //   ingredients: {
+  //     tr: [
+  //       "🍆 Köz Patlıcan",
+  //       "🫑 Köz Kırmızı & Yeşil Biber",
+  //       "🌿 Taze Maydanoz",
+  //       "🍋 Limon & Zeytinyağı",
+  //     ],
+  //     en: [
+  //       "🍆 Smoked Eggplant",
+  //       "🫑 Roasted Sweet Peppers",
+  //       "🌿 Fresh Parsley",
+  //       "🍋 Lemon & Olive Oil",
+  //     ],
+  //     de: [
+  //       "🍆 Aubergine",
+  //       "🫑 Paprikastreifen",
+  //       "🌿 Petersilie",
+  //       "🍋 Zitrone & Olivenöl",
+  //     ],
+  //   },
+  // },
   {
     id: 31,
     isVegan: true,
@@ -1584,22 +1551,16 @@ const menuItems = [
       ],
     },
     allergens: {
-      tr: [
-        "🥜 Ceviz (Sert kabuklu yemiş)",
-      ],
-      en: [
-        "🥜 Walnuts (Tree nuts)",
-      ],
-      de: [
-        "🥜 Walnüsse (Schalenfrüchte)",
-      ],
+      tr: ["🥜 Ceviz (Sert kabuklu yemiş)"],
+      en: ["🥜 Walnuts (Tree nuts)"],
+      de: ["🥜 Walnüsse (Schalenfrüchte)"],
     },
   },
   {
     id: 32,
     isVegan: true,
     category: "salata",
-    price: "2.00 €",
+    price: "4.00 €",
     img: "./images/yaprak-sarma.jpg",
     badgeClass: "vegan",
     name: {
@@ -1613,9 +1574,9 @@ const menuItems = [
       de: "10 zarte Weinblätter gefüllt mit fein gewürztem Kräuterreis, feinstem Olivenöl und frischer Zitrone.",
     },
     badge: {
-      tr: "10 Adet / 3.50 €",
-      en: "10 Pcs / 3.50 €",
-      de: "10 Stück / 3.50 €",
+      tr: "10 Adet / 4.00 €",
+      en: "10 Pcs / 4.00 €",
+      de: "10 Stück / 4.00 €",
     },
     ingredients: {
       tr: [
@@ -1681,15 +1642,9 @@ const menuItems = [
       ],
     },
     allergens: {
-      tr: [
-        "🥜 Ceviz (Sert kabuklu yemiş)",
-      ],
-      en: [
-        "🥜 Walnuts (Tree nuts)",
-      ],
-      de: [
-        "🥜 Walnüsse (Schalenfrüchte)",
-      ],
+      tr: ["🥜 Ceviz (Sert kabuklu yemiş)"],
+      en: ["🥜 Walnuts (Tree nuts)"],
+      de: ["🥜 Walnüsse (Schalenfrüchte)"],
     },
   },
   {
