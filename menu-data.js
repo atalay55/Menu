@@ -942,14 +942,14 @@ const menuItems = [
     img: "./images/kola.jpg",
     badgeClass: "chef",
     name: {
-      tr: "Coca-Cola (0,5 l)",
-      en: "Coca-Cola (0.5 l)",
-      de: "Coca-Cola (0,5 l)",
+      tr: "Cola Turka (0,5 l)",
+      en: "Cola Turka (0.5 l)",
+      de: "Cola Turka (0,5 l)",
     },
     desc: {
-      tr: "Buz gibi soğuk ferahlatıcı orijinal lezzet Coca-Cola (0,5 l).",
-      en: "Ice cold original refreshing Coca-Cola (0.5 l).",
-      de: "Eiskalt serviert – erfrischendes Softgetränk (0,5 l).",
+      tr: "Buz gibi soğuk ferahlatıcı lezzet, geleneksel efsane Cola Turka (0,5 l).",
+      en: "Ice cold refreshing traditional Turkish cola drink Cola Turka (0.5 l).",
+      de: "Eiskalt serviertes, erfrischendes türkisches Cola-Kultgetränk Cola Turka (0,5 l).",
     },
     badge: {
       tr: "0,5 l",
@@ -957,9 +957,9 @@ const menuItems = [
       de: "0,5 l",
     },
     ingredients: {
-      tr: ["🧊 Soğuk Servis (0,5 l)"],
-      en: ["🧊 Served Chilled (0.5 l)"],
-      de: ["🧊 Gekühlt (0,5 l)"],
+      tr: ["🧊 Soğuk Servis (0,5 l)", "🥤 Klasik Kola Lezzeti"],
+      en: ["🧊 Served Chilled (0.5 l)", "🥤 Classic Cola Taste"],
+      de: ["🧊 Gekühlt (0,5 l)", "🥤 Klassischer Cola-Geschmack"],
     },
   },
   {
@@ -967,17 +967,17 @@ const menuItems = [
     isVegan: true,
     category: "icecek",
     price: "2.50 €",
-    img: "./images/fanta.jpg",
+    img: "./images/spezi.png",
     badgeClass: "chef",
     name: {
-      tr: "Fanta Portakal (0,5 l)",
-      en: "Fanta Orange (0.5 l)",
-      de: "Fanta Orange (0,5 l)",
+      tr: "Spezi (0,5 l)",
+      en: "Spezi (0.5 l)",
+      de: "Spezi (0,5 l)",
     },
     desc: {
-      tr: "Güneş gibi parlayan meyveli ferahlık, soğuk Fanta portakal (0,5 l).",
-      en: "Fruity and bubbly chilled Fanta orange soda (0.5 l).",
-      de: "Fruchtig-spritzige Fanta Orange eiskalt serviert (0,5 l).",
+      tr: "Kola ve portakal gazozunun mükemmel ferahlatıcı karışımı, soğuk Spezi (0,5 l).",
+      en: "Iconic chilled German mix of refreshing cola and fruity orange soda (0.5 l).",
+      de: "Das Original: Die beliebte, fruchtig-spritzige Mischung aus Cola und Orange, eiskalt serviert (0,5 l).",
     },
     badge: {
       tr: "0,5 l",
@@ -985,9 +985,9 @@ const menuItems = [
       de: "0,5 l",
     },
     ingredients: {
-      tr: ["🧊 Soğuk Servis (0,5 l)", "🍊 Portakal Ferahlığı"],
-      en: ["🧊 Served Chilled (0.5 l)", "🍊 Orange Refreshment"],
-      de: ["🧊 Gekühlt (0,5 l)", "🍊 Orangengeschmack"],
+      tr: ["🧊 Soğuk Servis (0,5 l)", "🍊 Portakal & Kola Karışımı"],
+      en: ["🧊 Served Chilled (0.5 l)", "🍊 Cola & Orange Mix"],
+      de: ["🧊 Gekühlt (0,5 l)", "🍊 Cola-Orangen-Mischung"],
     },
   },
   {
@@ -1019,10 +1019,38 @@ const menuItems = [
     },
   },
   {
+    id: 40,
+    isVegan: true,
+    category: "icecek",
+    price: "2.50 €",
+    img: "./images/uludag-gazoz-zero.jpg",
+    badgeClass: "vegan",
+    name: {
+      tr: "Uludağ Zero (0,5 l)",
+      en: "Uludağ Zero (0.5 l)",
+      de: "Uludağ Zero (0,5 l)",
+    },
+    desc: {
+      tr: "Türkiye'nin eşsiz lezzeti, geleneksel Uludağ Gazoz (0,5 l).",
+      en: "Crisp lemon-lime flavored sparkling soda served chilled (0.5 l).",
+      de: "Erfrischende Zitronen-Limetten-Limonade eiskalt serviert (0,5 l).",
+    },
+    badge: {
+      tr: "0,5 l",
+      en: "0.5 l",
+      de: "0,5 l",
+    },
+    ingredients: {
+      tr: ["🧊 Soğuk Servis (0,5 l)", "🍋 Limon Ferahlığı"],
+      en: ["🧊 Served Chilled (0.5 l)", "🍋 Lemon Refreshment"],
+      de: ["🧊 Gekühlt (0,5 l)", "🍋 Zitronenfrische"],
+    },
+  },
+  {
     id: 19,
     isVegan: true,
     category: "icecek",
-    price: "3.00 €",
+    price: "1.00 €",
     img: "./images/salgam.jpg",
     badgeClass: "spicy",
     name: {
@@ -1031,9 +1059,9 @@ const menuItems = [
       de: "Traditioneller Şalgam-Saft",
     },
     desc: {
-      tr: "Adana usulü fermante mor havuç ve şalgam suyu; isteğe göre acılı veya tatlı ikram.",
-      en: "Traditional fermented purple carrot & turnip juice from Adana, savory & refreshing.",
-      de: "Traditioneller fermentierter Rübensaft aus Adana, würzig und erfrischend.",
+      tr: "Adana usulü fermante mor havuç ve şalgam suyu.",
+      en: "Traditional fermented purple carrot & turnip juice from Adana.",
+      de: "Traditioneller fermentierter Rübensaft aus Adana.",
     },
     badge: {
       tr: "Doğal Fermente",
@@ -1079,35 +1107,40 @@ const menuItems = [
       de: ["💧 Quellwasser (0,5 l)", "🧊 Gekühlt"],
     },
   },
-  /*
+
   {
     id: 21,
+    isVegan: false,
     category: "icecek",
     price: "1.50 €",
     img: "./images/ayran.jpg",
-    badgeClass: "vegan",
+    badgeClass: "chef",
     name: {
-      tr: "Köpüklü Yayık Ayranı",
-      en: "Traditional Churned Ayran",
-      de: "Klassischer Schaum-Ayran",
+      tr: "Ayran (Kapalı Kutu)",
+      en: "Chilled Turkish Ayran",
+      de: "Kühler Ayran (Becher)",
     },
     desc: {
-      tr: "Geleneksel bakır kapta bol köpüklü taze köy yoğurdu ayranı ve kuru nane dokunuşu.",
-      en: "Traditional Turkish churned yogurt drink served extra frothy with a pinch of dried mint.",
-      de: "Cremig aufgeschäumtes Joghurtgetränk nach traditioneller Rezeptur mit Minze.",
+      tr: "Geleneksel taze yoğurttan hazırlanan, buz gibi soğuk ferahlatıcı kapalı kutu ayran.",
+      en: "Classic chilled, refreshing savory yogurt drink served in a sealed cup.",
+      de: "Klassisches erfrischendes Joghurtgetränk im praktischen Becher, gekühlt serviert.",
     },
     badge: {
-      tr: "Köy Yoğurdu",
-      en: "Farm Yogurt",
-      de: "Bauernjoghurt",
+      tr: "Soğuk İçecek",
+      en: "Chilled",
+      de: "Gekühlt",
     },
     ingredients: {
-      tr: ["🥛 Doğal Yoğurt", "🧂 Hafif Tuz", "🌿 Kuru Nane"],
-      en: ["🥛 Natural Yogurt", "🧂 Light Salt", "🌿 Dried Mint"],
-      de: ["🥛 Naturjoghurt", "🧂 Prise Salz", "🌿 Minze"],
+      tr: ["🥛 Doğal Yoğurt", "💧 Su", "🧂 Tuz"],
+      en: ["🥛 Natural Yogurt", "💧 Water", "🧂 Salt"],
+      de: ["🥛 Naturjoghurt", "💧 Wasser", "🧂 Salz"],
+    },
+    allergens: {
+      tr: ["🥛 Süt (Yoğurt)"],
+      en: ["🥛 Milk (Yogurt)"],
+      de: ["🥛 Milch (Joghurt)"],
     },
   },
-  */
   {
     id: 22,
     isVegan: true,
@@ -1182,36 +1215,36 @@ const menuItems = [
       ],
     },
   },
-  /*
+
   {
-    id: 24,
+    id: 41,
     isVegan: true,
     category: "icecek",
     price: "2.50 €",
-    img: "./images/filtre-kahve.jpg",
-    badgeClass: "vegan",
+    img: "./images/golden-eagle.jpg",
+    badgeClass: "chef",
     name: {
-      tr: "Special Filtre Kahve",
-      en: "Specialty Filter Coffee",
-      de: "Spezial-Filterkaffee",
+      tr: "Golden Eagle Enerji İçeceği (0,25 l)",
+      en: "Golden Eagle Energy Drink (0.25 l)",
+      de: "Golden Eagle Energy Drink (0,25 l)",
     },
     desc: {
-      tr: "Etiyopya tek köken çekirdeklerden taze öğütülmüş V60 damlama kahve, meyvemsi ve aromatik.",
-      en: "Single-origin Ethiopian beans freshly hand-poured with floral and fruity notes.",
-      de: "Frisch aufgebrühter V60 Handfilterkaffee aus äthiopischen Bohnen mit feiner Fruchtnote.",
+      tr: "Buz gibi ferahlatıcı ve canlandırıcı efsane enerji içeceği Golden Eagle (0,25 l).",
+      en: "Refreshing and revitalizing chilled energy drink Golden Eagle (0.25 l).",
+      de: "Erfrischender und belebender Energy Drink Golden Eagle, eiskalt serviert (0,25 l).",
     },
     badge: {
-      tr: "Organik Çekirdek",
-      en: "Single Origin",
-      de: "Bio-Bohnen",
+      tr: "0,25 l",
+      en: "0.25 l",
+      de: "0,25 l",
     },
     ingredients: {
-      tr: ["☕ Etiyopya Arabica", "💧 Taze Damlama"],
-      en: ["☕ Ethiopian Arabica", "💧 Fresh Drip"],
-      de: ["☕ Äthiopischer Arabica", "💧 Handfilter"],
+      tr: ["⚡ Enerji İçeceği", "🧊 Soğuk Servis (0,25 l)"],
+      en: ["⚡ Energy Drink", "🧊 Served Chilled (0.25 l)"],
+      de: ["⚡ Energy Drink", "🧊 Gekühlt (0,25 l)"],
     },
   },
-  */
+
   {
     id: 25,
     isVegan: true,
@@ -1264,7 +1297,7 @@ const menuItems = [
     id: 26,
     isVegan: true,
     category: "salata",
-    price: "2.00 €",
+    price: "5.00 €",
     img: "./images/cig-kofte.jpg",
     badgeClass: "spicy",
     name: {
@@ -1278,9 +1311,9 @@ const menuItems = [
       de: "Klassisch gewürzte Bulgurbällchen mit Urfa-Isot, serviert als Portion mit knackigem Salat und frischer Zitrone.",
     },
     badge: {
-      tr: "Porsiyon / 2.00 €",
-      en: "Portion / 2.00 €",
-      de: "Portion / 2.00 €",
+      tr: "Porsiyon / 5.00 €",
+      en: "Portion / 5.00 €",
+      de: "Portion / 5.00 €",
     },
     ingredients: {
       tr: [
