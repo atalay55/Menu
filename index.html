@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Fatih Cami Menü</title>
   <meta name="description" content="Fatih Cami Kermes Menü - Lezzetli seçenekler, grill, tatlı, hamur işi, içecek ve salatalar.">
-  <link rel="stylesheet" href="./style.css?v=2.4">
+  <link rel="stylesheet" href="./style.css?v=2.5">
 </head>
 <body>
 
@@ -61,6 +61,23 @@
       <div class="tour-footer">
         <span class="tour-highlight" id="tourTag">Fragen stellen • Geschichte entdecken • Einblicke gewinnen</span>
       </div>
+    </section>
+
+    <!-- Öğrenci Yemek İkramı & Hayır Kartı (PayPal QR Link) -->
+    <section class="donate-card" id="donateCard" aria-label="Öğrenci Yemek İkramı ve Bağış">
+      <div class="donate-content">
+        <div class="donate-icon-wrap" aria-hidden="true">🤲</div>
+        <div class="donate-info">
+          <h3 class="donate-title" id="donateTitle">Öğrencilerimiz İçin Yemek İkramı</h3>
+          <p class="donate-sub" id="donateSub">Öğrencilerimiz için yemek ikramı yapılacaktır, hayırlarınızı bekliyoruz.</p>
+        </div>
+      </div>
+      <a href="https://paypal.me/talebekati?country.x=DE&locale.x=de_DE" target="_blank" rel="noopener noreferrer" class="donate-paypal-btn" id="donateBtn">
+        <svg class="paypal-svg-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.72a.77.77 0 0 1 .757-.645h6.727c2.833 0 4.78.668 5.63 2.022.41.653.596 1.41.554 2.348-.052 1.158-.415 2.418-1.08 3.368-.93 1.33-2.522 2.092-4.644 2.092H9.88a.77.77 0 0 0-.758.645l-.923 5.852a.64.64 0 0 1-.633.54h-.49zm12.44-13.21c-.06 1.353-.51 2.61-1.34 3.733-1.106 1.495-2.852 2.253-5.19 2.253h-1.89l-.84 5.324a.55.55 0 0 1-.543.463H6.92l.225-1.425.792-5.022a1.39 1.39 0 0 1 1.372-1.168h2.64c2.533 0 4.442-.91 5.568-2.522.742-1.063 1.168-2.37 1.267-3.68.49.558.784 1.242.732 2.044z"/>
+        </svg>
+        <span id="donateBtnLabel">PayPal ile Destek Ol</span>
+      </a>
     </section>
 
     <!-- Search Box -->
@@ -260,7 +277,7 @@
   </div>
 
   <!-- Menu Data File (Easily edit items, prices, and photos here) -->
-  <script src="./menu-data.js?v=2.4"></script>
+  <script src="./menu-data.js?v=2.5"></script>
 
   <script>
     // Internationalization (i18n)
@@ -277,6 +294,11 @@
           title: "Cami Tanıtım Turları",
           sub: "İslamiyet ve Cami Mimarisi Rehberli Tanıtımı  (Cumartesi-Pazar)",
           tag: "Sorular sorun • Tarihi keşfedin • Bilgi edinin"
+        },
+        donate: {
+          title: "Öğrencilerimiz İçin Yemek İkramı",
+          sub: "Öğrencilerimiz için yemek ikramı yapılacaktır, hayırlarınızı bekliyoruz.",
+          btn: "PayPal ile Destek Ol"
         },
         survey: {
           badge: "🕌 Mini Anket",
@@ -313,6 +335,11 @@
           sub: "with an Introduction to Islam (Saturday-Sunday)",
           tag: "Ask questions • Discover history • Gain insights"
         },
+        donate: {
+          title: "Meal Treat for Our Students",
+          sub: "Meals will be provided for our students — we welcome your generous support.",
+          btn: "Donate via PayPal"
+        },
         survey: {
           badge: "🕌 Quick Survey",
           title: "Welcome! How did you hear about our festival?",
@@ -347,6 +374,11 @@
           title: "Moschee Führungen",
           sub: "mit einer Einführung zum Islam (Samstag-Sonntag)",
           tag: "Fragen stellen • Geschichte entdecken • Einblicke gewinnen"
+        },
+        donate: {
+          title: "Essensspende für unsere Schüler",
+          sub: "Für unsere Schüler wird Essen spendiert – wir freuen uns über Ihre Unterstützung.",
+          btn: "Via PayPal spenden"
         },
         survey: {
           badge: "🕌 Kurzumfrage",
@@ -426,6 +458,15 @@
         tourTitle.textContent = texts.tour.title;
         tourSub.textContent = texts.tour.sub;
         tourTag.textContent = texts.tour.tag;
+      }
+
+      const donateTitle = document.getElementById('donateTitle');
+      const donateSub = document.getElementById('donateSub');
+      const donateBtnLabel = document.getElementById('donateBtnLabel');
+      if (donateTitle && texts.donate) {
+        donateTitle.textContent = texts.donate.title;
+        donateSub.textContent = texts.donate.sub;
+        if (donateBtnLabel) donateBtnLabel.textContent = texts.donate.btn;
       }
 
       document.querySelectorAll('.tab-label').forEach(el => {

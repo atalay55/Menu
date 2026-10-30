@@ -1469,3 +1469,98 @@ body::before {
 .legal-content strong {
   color: var(--text-main);
 }
+
+/* Student Meal Donation Card (PayPal Banner) */
+.donate-card {
+  background: linear-gradient(135deg, #fffdf7 0%, #faefd4 100%);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.donate-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 210px;
+  min-width: 0;
+}
+
+.donate-icon-wrap {
+  width: 38px;
+  height: 38px;
+  background: var(--navy-gradient);
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(21, 44, 91, 0.2);
+}
+
+.donate-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.donate-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.donate-sub {
+  font-size: 12px;
+  color: #475569;
+  font-weight: 600;
+  margin: 3px 0 0 0;
+  line-height: 1.35;
+}
+
+.donate-paypal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: var(--navy-gradient);
+  color: #ffffff;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-pill);
+  padding: 9px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(21, 44, 91, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  flex-shrink: 0;
+}
+
+.donate-paypal-btn:hover,
+.donate-paypal-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(21, 44, 91, 0.32);
+}
+
+.paypal-svg-icon {
+  color: #f7df8b;
+  flex-shrink: 0;
+}
+
+@media (max-width: 460px) {
+  .donate-paypal-btn {
+    width: 100%;
+  }
+}
