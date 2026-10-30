@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Fatih Cami Menü</title>
   <meta name="description" content="Fatih Cami Kermes Menü - Lezzetli seçenekler, grill, tatlı, hamur işi, içecek ve salatalar.">
-  <link rel="stylesheet" href="./style.css?v=2.6">
+  <link rel="stylesheet" href="./style.css?v=2.7">
 </head>
 <body>
 
@@ -277,7 +277,7 @@
   </div>
 
   <!-- Menu Data File (Easily edit items, prices, and photos here) -->
-  <script src="./menu-data.js?v=2.6"></script>
+  <script src="./menu-data.js?v=2.7"></script>
 
   <script>
     // Internationalization (i18n)
@@ -523,6 +523,9 @@
         const name = item.name[currentLang] || item.name.tr;
         const desc = item.desc[currentLang] || item.desc.tr;
         const badge = item.badge[currentLang] || item.badge.tr;
+        const algList = (item.allergens && (item.allergens[currentLang] || item.allergens.tr)) || [];
+        const algIcons = algList.map(a => a.split(' ')[0]).join(' ');
+        const algTooltip = algList.join(' • ');
 
         return `
           <article class="food-card" data-id="${item.id}" tabindex="0" role="button" aria-label="${name}">
@@ -535,6 +538,7 @@
                 <span class="food-price">${item.price}</span>
                 ${item.isVegan ? `<span class="vegan-tag" title="Vegan">🌱 Vegan</span>` : ''}
                 ${badge ? `<span class="food-badge ${item.badgeClass}">${badge}</span>` : ''}
+                ${algIcons ? `<span class="allergen-icon-badge" title="${algTooltip}" aria-label="${algTooltip}">⚠️ ${algIcons}</span>` : ''}
               </div>
             </div>
             <div class="food-thumb-wrap">
