@@ -511,6 +511,23 @@ const menuItems = [
         "🧂 Spezial-Gewürz",
       ],
     },
+    allergens: {
+      tr: [
+        "🥚 Yumurta (Mayonezde olabilir)",
+        "🧴 Hardal (Mayonezde/sosta olabilir)",
+        "🥬 Kereviz (Ketçap/baharatta olabilir)",
+      ],
+      en: [
+        "🥚 Egg (possible in mayonnaise)",
+        "🧴 Mustard (possible in mayonnaise/sauce)",
+        "🥬 Celery (possible in ketchup/seasoning)",
+      ],
+      de: [
+        "🥚 Ei (in Mayonnaise möglich)",
+        "🧴 Senf (in Mayonnaise/Soße möglich)",
+        "🥬 Sellerie (in Ketchup/Gewürz möglich)",
+      ],
+    },
   },
   {
     id: 7,
@@ -542,6 +559,26 @@ const menuItems = [
       ],
       en: ["🥜 Pistachio", "🧈 Clarified Butter", "🍯 Syrup", "🌾 Filo Pastry"],
       de: ["🥜 Pistazie", "🧈 Butterschmalz", "🍯 Sirup", "🌾 Filoteig"],
+    },
+    allergens: {
+      tr: [
+        "🌾 Gluten (El açması buğday yufkası)",
+        "🥜 Antep Fıstığı (Sert kabuklu yemiş)",
+        "🥛 Süt (Sade yağ / Tereyağı)",
+        "🥚 Yumurta (Hamurda eser miktarda olabilir)",
+      ],
+      en: [
+        "🌾 Gluten (Wheat filo pastry)",
+        "🥜 Pistachio (Tree nuts)",
+        "🥛 Milk (Clarified butter)",
+        "🥚 Egg (possible traces in dough)",
+      ],
+      de: [
+        "🌾 Gluten (Weizen-Filoteig)",
+        "🥜 Pistazien (Schalenfrüchte)",
+        "🥛 Milch (Butterschmalz)",
+        "🥚 Ei (Spuren im Teig möglich)",
+      ],
     },
   },
   {
@@ -583,6 +620,29 @@ const menuItems = [
         "🍓 Frische Erdbeere",
         "🥛 Sahne",
         "🎂 Biskuitboden",
+      ],
+    },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Buğday unu)",
+        "🥚 Yumurta (Pandispanya/kek)",
+        "🥛 Süt (Krema ve çikolata)",
+        "🥜 Sert Kabuklu Yemişler (Çeşide göre bulunabilir)",
+        "🫘 Soya (Çikolatada lesitin)",
+      ],
+      en: [
+        "🌾 Gluten (Wheat flour)",
+        "🥚 Egg (Sponge cake)",
+        "🥛 Milk (Cream & chocolate)",
+        "🥜 Tree Nuts (possible depending on variety)",
+        "🫘 Soy (Lecithin in chocolate)",
+      ],
+      de: [
+        "🌾 Gluten (Weizenmehl)",
+        "🥚 Ei (Biskuit/Kuchen)",
+        "🥛 Milch (Sahne & Schokolade)",
+        "🥜 Schalenfrüchte (je nach Sorte möglich)",
+        "🫘 Soja (Lecithin in Schokolade)",
       ],
     },
   },
@@ -742,6 +802,23 @@ const menuItems = [
         "🧈 Reine Butter",
         "🌿 Petersilie",
         "🌾 Teigblätter",
+      ],
+    },
+    allergens: {
+      tr: [
+        "🌾 Gluten (El açması yufka)",
+        "🥛 Süt (Ezine peyniri ve tereyağı)",
+        "🥚 Yumurta (Su böreği hamurunda)",
+      ],
+      en: [
+        "🌾 Gluten (Filo pastry)",
+        "🥛 Milk (Feta cheese & butter)",
+        "🥚 Egg (in water borek dough)",
+      ],
+      de: [
+        "🌾 Gluten (Weizenteigblätter)",
+        "🥛 Milch (Schafskäse & Butter)",
+        "🥚 Ei (im Wasserbörek-Teig)",
       ],
     },
   },
@@ -968,6 +1045,17 @@ const menuItems = [
       en: ["🥕 Purple Carrot", "🌾 Natural Culture", "🌶️ Spicy / Mild"],
       de: ["🥕 Lila Karotte", "🌾 Fermentation", "🌶️ Scharf / Mild"],
     },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Geleneksel bulgur fermantasyonu)",
+      ],
+      en: [
+        "🌾 Gluten (Traditional bulgur fermentation)",
+      ],
+      de: [
+        "🌾 Gluten (Traditionelle Bulgur-Fermentation)",
+      ],
+    },
   },
   {
     id: 20,
@@ -1085,6 +1173,20 @@ const menuItems = [
       en: ["☕ Fresh Ground Beans", "🍬 Turkish Delight", "💧 Glass of Water"],
       de: ["☕ Frisch gemahlen", "🍬 Türkischer Lokum", "💧 Glas Wasser"],
     },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Yanındaki lokumda nişasta/eser miktar)",
+        "🥜 Sert Kabuklu Yemişler (Lokumda iz miktarda olabilir)",
+      ],
+      en: [
+        "🌾 Gluten (Starch/traces in served Turkish delight)",
+        "🥜 Tree Nuts (possible traces in Turkish delight)",
+      ],
+      de: [
+        "🌾 Gluten (Stärke/Spuren im servierten Lokum)",
+        "🥜 Schalenfrüchte (Spuren im Lokum möglich)",
+      ],
+    },
   },
   /*
   {
@@ -1158,6 +1260,17 @@ const menuItems = [
         "🫒 Olivenöl",
       ],
     },
+    allergens: {
+      tr: [
+        "🌾 Gluten (İnce buğday bulguru)",
+      ],
+      en: [
+        "🌾 Gluten (Fine wheat bulgur)",
+      ],
+      de: [
+        "🌾 Gluten (Feiner Weizenbulgur)",
+      ],
+    },
   },
   {
     id: 26,
@@ -1201,6 +1314,20 @@ const menuItems = [
         "🍋 Zitrone",
       ],
     },
+    allergens: {
+      tr: [
+        "🌾 Gluten (İnce buğday bulguru)",
+        "🥜 Ceviz (Sert kabuklu yemiş)",
+      ],
+      en: [
+        "🌾 Gluten (Fine wheat bulgur)",
+        "🥜 Walnuts (Tree nuts)",
+      ],
+      de: [
+        "🌾 Gluten (Feiner Weizenbulgur)",
+        "🥜 Walnüsse (Schalenfrüchte)",
+      ],
+    },
   },
   {
     id: 27,
@@ -1241,6 +1368,26 @@ const menuItems = [
         "🌽 Mais & Erbsen",
         "🥒 Essiggurken",
         "🥣 Cremige Sauce",
+      ],
+    },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Buğday makarnası)",
+        "🥚 Yumurta (Kremalı/mayonezli sosta)",
+        "🥛 Süt (Kremalı/yoğurtlu sosta)",
+        "🧴 Hardal (Sos ve kornişon turşuda)",
+      ],
+      en: [
+        "🌾 Gluten (Wheat pasta)",
+        "🥚 Egg (in creamy dressing)",
+        "🥛 Milk (in creamy/yogurt dressing)",
+        "🧴 Mustard (in dressing & pickles)",
+      ],
+      de: [
+        "🌾 Gluten (Weizennudeln)",
+        "🥚 Ei (im Dressing)",
+        "🥛 Milch (im Dressing)",
+        "🧴 Senf (in Dressing & Gewürzgurken)",
       ],
     },
   },
@@ -1286,6 +1433,17 @@ const menuItems = [
         "🍋 Zitrone & Olivenöl",
       ],
     },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Arpa şehriye / durum buğdayı)",
+      ],
+      en: [
+        "🌾 Gluten (Orzo durum wheat pasta)",
+      ],
+      de: [
+        "🌾 Gluten (Orzo-Hartweizennudeln)",
+      ],
+    },
   },
   {
     id: 29,
@@ -1326,6 +1484,17 @@ const menuItems = [
         "🥛 Joghurt",
         "🧄 Knoblauch",
         "🫒 Olivenöl",
+      ],
+    },
+    allergens: {
+      tr: [
+        "🥛 Süt (Süzme yoğurt)",
+      ],
+      en: [
+        "🥛 Milk (Strained yogurt)",
+      ],
+      de: [
+        "🥛 Milch (Joghurt)",
       ],
     },
   },
@@ -1414,6 +1583,17 @@ const menuItems = [
         "🍋 Granatapfelsirup",
       ],
     },
+    allergens: {
+      tr: [
+        "🥜 Ceviz (Sert kabuklu yemiş)",
+      ],
+      en: [
+        "🥜 Walnuts (Tree nuts)",
+      ],
+      de: [
+        "🥜 Walnüsse (Schalenfrüchte)",
+      ],
+    },
   },
   {
     id: 32,
@@ -1500,6 +1680,17 @@ const menuItems = [
         "🧄 Knoblauch & Walnüsse",
       ],
     },
+    allergens: {
+      tr: [
+        "🥜 Ceviz (Sert kabuklu yemiş)",
+      ],
+      en: [
+        "🥜 Walnuts (Tree nuts)",
+      ],
+      de: [
+        "🥜 Walnüsse (Schalenfrüchte)",
+      ],
+    },
   },
   {
     id: 34,
@@ -1527,6 +1718,23 @@ const menuItems = [
       en: ["🍯 Syrup", "🌾 Crispy Pastry", "🍋 Lemon"],
       de: ["🍯 Zuckersirup", "🌾 Brandteig", "🍋 Zitrone"],
     },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Buğday unu ve irmik)",
+        "🥚 Yumurta (Tulumba hamurunda)",
+        "🥛 Süt (Hamurda eser miktarda olabilir)",
+      ],
+      en: [
+        "🌾 Gluten (Wheat flour & semolina)",
+        "🥚 Egg (in choux pastry)",
+        "🥛 Milk (possible traces in dough)",
+      ],
+      de: [
+        "🌾 Gluten (Weizenmehl & Grieß)",
+        "🥚 Ei (im Brandteig)",
+        "🥛 Milch (Spuren im Teig möglich)",
+      ],
+    },
   },
   {
     id: 35,
@@ -1553,6 +1761,29 @@ const menuItems = [
       tr: ["🧇 Taze Waffle Hamuru", "🍫 Çikolata Sosu", "✨ Pudra Şekeri"],
       en: ["🧇 Fresh Waffle Batter", "🍫 Chocolate Sauce", "✨ Powdered Sugar"],
       de: ["🧇 Frischer Waffelteig", "🍫 Schokosauce", "✨ Puderzucker"],
+    },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Waffle hamuru)",
+        "🥚 Yumurta (Waffle hamuru)",
+        "🥛 Süt (Hamur ve çikolata sosu)",
+        "🥜 Fındık (Çikolata sosunda olabilir)",
+        "🫘 Soya (Çikolata sosunda lesitin)",
+      ],
+      en: [
+        "🌾 Gluten (Waffle batter)",
+        "🥚 Egg (Waffle batter)",
+        "🥛 Milk (Batter & chocolate sauce)",
+        "🥜 Hazelnuts (possible in chocolate sauce)",
+        "🫘 Soy (Lecithin in chocolate sauce)",
+      ],
+      de: [
+        "🌾 Gluten (Waffelteig)",
+        "🥚 Ei (Waffelteig)",
+        "🥛 Milch (Teig & Schokosauce)",
+        "🥜 Haselnüsse (in Schokosauce möglich)",
+        "🫘 Soja (Lecithin in Schokosauce)",
+      ],
     },
   },
   {
@@ -1596,6 +1827,29 @@ const menuItems = [
         "🍑 Aprikosenkonfitüre",
       ],
     },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Buğday unu)",
+        "🥜 Fındık (Kavrulmuş fındık kaplama)",
+        "🥛 Süt (Tereyağlı hamur)",
+        "🥚 Yumurta (Kurabiye hamuru)",
+        "🫘 Soya (Çikolata kaplamasında lesitin)",
+      ],
+      en: [
+        "🌾 Gluten (Wheat flour)",
+        "🥜 Hazelnuts (Roasted nut topping)",
+        "🥛 Milk (Butter shortcrust dough)",
+        "🥚 Egg (Shortcrust pastry)",
+        "🫘 Soy (Lecithin in chocolate dip)",
+      ],
+      de: [
+        "🌾 Gluten (Weizenmehl)",
+        "🥜 Haselnüsse (Schalenfrüchte)",
+        "🥛 Milch (Butter im Mürbeteig)",
+        "🥚 Ei (im Mürbeteig)",
+        "🫘 Soja (Lecithin in Schokolade)",
+      ],
+    },
   },
   {
     id: 37,
@@ -1636,6 +1890,26 @@ const menuItems = [
         "🌰 Walnüsse",
         "✨ Puderzucker",
         "🧈 Buttermürbeteig",
+      ],
+    },
+    allergens: {
+      tr: [
+        "🌾 Gluten (Buğday unu)",
+        "🥛 Süt (Tereyağı ve yoğurt)",
+        "🥜 Ceviz (Elmalı iç harçta)",
+        "🥚 Yumurta (Hamurda bulunabilir)",
+      ],
+      en: [
+        "🌾 Gluten (Wheat flour)",
+        "🥛 Milk (Butter & yogurt)",
+        "🥜 Walnuts (in apple filling)",
+        "🥚 Egg (possible in dough)",
+      ],
+      de: [
+        "🌾 Gluten (Weizenmehl)",
+        "🥛 Milch (Butter & Joghurt)",
+        "🥜 Walnüsse (in der Apfelfüllung)",
+        "🥚 Ei (im Teig möglich)",
       ],
     },
   },
