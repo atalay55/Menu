@@ -1046,6 +1046,35 @@ const menuItems = [
       de: ["🧊 Gekühlt (0,5 l)", "🍋 Zitronenfrische"],
     },
   },
+
+  {
+    id: 41,
+    isVegan: true,
+    category: "icecek",
+    price: "2.50 €",
+    img: "./images/golden-eagle.jpg",
+    badgeClass: "chef",
+    name: {
+      tr: "Golden Eagle Enerji İçeceği (0,25 l)",
+      en: "Golden Eagle Energy Drink (0.25 l)",
+      de: "Golden Eagle Energy Drink (0,25 l)",
+    },
+    desc: {
+      tr: "Buz gibi ferahlatıcı ve canlandırıcı efsane enerji içeceği Golden Eagle (0,25 l).",
+      en: "Refreshing and revitalizing chilled energy drink Golden Eagle (0.25 l).",
+      de: "Erfrischender und belebender Energy Drink Golden Eagle, eiskalt serviert (0,25 l).",
+    },
+    badge: {
+      tr: "0,25 l",
+      en: "0.25 l",
+      de: "0,25 l",
+    },
+    ingredients: {
+      tr: ["⚡ Enerji İçeceği", "🧊 Soğuk Servis (0,25 l)"],
+      en: ["⚡ Energy Drink", "🧊 Served Chilled (0.25 l)"],
+      de: ["⚡ Energy Drink", "🧊 Gekühlt (0,25 l)"],
+    },
+  },
   {
     id: 19,
     isVegan: true,
@@ -1213,35 +1242,6 @@ const menuItems = [
         "🌾 Gluten (Stärke/Spuren im servierten Lokum)",
         "🥜 Schalenfrüchte (Spuren im Lokum möglich)",
       ],
-    },
-  },
-
-  {
-    id: 41,
-    isVegan: true,
-    category: "icecek",
-    price: "2.50 €",
-    img: "./images/golden-eagle.jpg",
-    badgeClass: "chef",
-    name: {
-      tr: "Golden Eagle Enerji İçeceği (0,25 l)",
-      en: "Golden Eagle Energy Drink (0.25 l)",
-      de: "Golden Eagle Energy Drink (0,25 l)",
-    },
-    desc: {
-      tr: "Buz gibi ferahlatıcı ve canlandırıcı efsane enerji içeceği Golden Eagle (0,25 l).",
-      en: "Refreshing and revitalizing chilled energy drink Golden Eagle (0.25 l).",
-      de: "Erfrischender und belebender Energy Drink Golden Eagle, eiskalt serviert (0,25 l).",
-    },
-    badge: {
-      tr: "0,25 l",
-      en: "0.25 l",
-      de: "0,25 l",
-    },
-    ingredients: {
-      tr: ["⚡ Enerji İçeceği", "🧊 Soğuk Servis (0,25 l)"],
-      en: ["⚡ Energy Drink", "🧊 Served Chilled (0.25 l)"],
-      de: ["⚡ Energy Drink", "🧊 Gekühlt (0,25 l)"],
     },
   },
 
